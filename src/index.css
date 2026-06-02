@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --color-rich-black: var(--bg-color);
+  --color-charcoal: var(--border-color);
+  --color-off-white: var(--text-color);
+  --color-muted-gray: var(--text-muted);
+  --color-neon-green: var(--accent-color);
+
+  --color-panel-bg: var(--panel-bg);
+  --color-panel-header: var(--panel-header);
+  --color-panel-inner: var(--panel-inner);
+  --color-panel-input: var(--panel-input);
+  --color-card-bg: var(--card-bg);
+
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+:root {
+  /* Default Dark Mode - Enhanced Contrast */
+  --bg-color: #0A0A0A;
+  --border-color: #2D2D2D; /* Lighter charcoal gridlines for visibility */
+  --text-color: #F5F5F5;
+  --text-muted: #9A9A9A; /* Brighter muted gray for readability (WCAG AA) */
+  --grid-color: rgba(45, 45, 45, 0.4);
+  --accent-color: #befd66; /* NVRMND signature lime */
+  --selection-bg: #befd66;
+  
+  --panel-bg: #000000;
+  --panel-header: #0F0F0F;
+  --panel-inner: #0A0A0A;
+  --panel-input: #070707;
+  --card-bg: #121212; /* Distinct, contrasty gray for dark cards */
+  
+  color-scheme: dark;
+}
+
+:root.light {
+  /* Brutalist Light Mode - Enhanced Contrast */
+  --bg-color: #F8F8F8;
+  --border-color: #C0C0C0; /* Crisper gridlines */
+  --text-color: #0F0F0F;
+  --text-muted: #4D4D4D; /* Darker muted text for high-contrast readability */
+  --grid-color: rgba(180, 180, 180, 0.4);
+  --accent-color: #388400; /* Richer green for print readability */
+  --selection-bg: #befd66; /* Keep neon green highlight */
+  
+  --panel-bg: #FFFFFF;
+  --panel-header: #F0F0F0;
+  --panel-inner: #FAFAFA;
+  --panel-input: #F3F3F3;
+  --card-bg: #FFFFFF; /* High-contrast white for light cards */
+  
+  color-scheme: light;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-rich-black);
+  color: var(--color-off-white);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* CAD Grid Background */
+.cad-grid {
+  background-image: 
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transition: background-image 0.3s ease;
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-left: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Selection style - NVRMND signature lime */
+::selection {
+  background-color: var(--selection-bg);
+  color: #000000;
+}
+::-moz-selection {
+  background-color: var(--selection-bg);
+  color: #000000;
+}
