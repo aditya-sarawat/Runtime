@@ -78,8 +78,10 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
           <Crosshair position="bottom-right" />
           <div className="space-y-8">
             <div>
-              <span className="font-mono text-[11px] text-neon-green font-bold block mb-4 uppercase tracking-widest">// ACTIVE EXTENSION</span>
-              <h2 className="font-sans font-black text-4xl sm:text-5xl text-off-white uppercase tracking-tighter leading-none mb-6">
+              <span className="font-mono text-[11px] text-neon-green font-bold block mb-4 uppercase tracking-widest">
+                {isCF ? '// ACTIVE EXTENSION' : '// COMING SOON'}
+              </span>
+              <h2 className={`font-sans font-black text-4xl sm:text-5xl uppercase tracking-tighter leading-none mb-6 ${isCF ? 'text-off-white' : 'text-muted-gray'}`}>
                 {title}
               </h2>
               <p className="text-sm sm:text-base text-muted-gray font-sans leading-relaxed text-left max-w-lg">
@@ -104,12 +106,21 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
           </div>
 
           <div className="mt-12 flex gap-4 pt-6 border-t border-charcoal">
-            <button
-              onClick={() => onDownload(extensionId)}
-              className="px-6 py-3 bg-off-white text-rich-black font-mono font-bold text-xs uppercase hover:bg-neon-green hover:text-black transition-all cursor-pointer"
-            >
-              DOWNLOAD EXTENSION
-            </button>
+            {isCF ? (
+              <button
+                onClick={() => onDownload(extensionId)}
+                className="px-6 py-3 bg-off-white text-rich-black font-mono font-bold text-xs uppercase hover:bg-neon-green hover:text-black transition-all cursor-pointer"
+              >
+                DOWNLOAD EXTENSION
+              </button>
+            ) : (
+              <button
+                disabled
+                className="px-6 py-3 bg-charcoal text-muted-gray font-mono font-bold text-xs uppercase cursor-not-allowed"
+              >
+                ROLLOUT PENDING / COMING SOON
+              </button>
+            )}
           </div>
         </div>
 
@@ -118,7 +129,7 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
           <div className="space-y-8">
             <div>
               <span className="font-mono text-[11px] text-muted-gray block mb-6 tracking-widest uppercase select-none">// RUNTIME PREVIEW</span>
-              <div className="bg-panel-inner/40 p-4 border border-charcoal relative">
+              <div className={`bg-panel-inner/40 p-4 border border-charcoal relative ${!isCF ? 'opacity-40' : ''}`}>
                 <Crosshair position="bottom-right" />
                 {isCF ? <BrowserMockup /> : <NodePipeline />}
               </div>

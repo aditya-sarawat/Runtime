@@ -4,13 +4,38 @@ import Crosshair from './Crosshair';
 const NewsletterForm = () => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Subscription failed.');
+      }
+
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 5000);
       setEmail('');
+    } catch (error) {
+      setSubmitError(error.message);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -43,19 +68,26 @@ const NewsletterForm = () => {
               <input
                 type="email"
                 required
+                disabled={isSubmitting}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="developer@domain.io"
                 className="bg-transparent text-off-white font-mono text-xs focus:outline-none w-full placeholder-charcoal"
               />
             </div>
+            {submitError && (
+              <div className="text-[10px] text-red-500 font-mono mt-1 text-left uppercase">
+                ✕ ERR: {submitError}
+              </div>
+            )}
           </div>
           
           <button
             type="submit"
-            className="w-full mt-4 py-2.5 bg-off-white text-rich-black font-mono font-bold text-xs uppercase hover:bg-neon-green hover:text-black transition-all duration-300 rounded-none border border-transparent cursor-pointer"
+            disabled={isSubmitting}
+            className="w-full mt-4 py-2.5 bg-off-white text-rich-black font-mono font-bold text-xs uppercase hover:bg-neon-green hover:text-black transition-all duration-300 rounded-none border border-transparent cursor-pointer disabled:bg-charcoal disabled:text-muted-gray"
           >
-            SUBSCRIBE →
+            {isSubmitting ? 'SUBSCRIBING...' : 'SUBSCRIBE →'}
           </button>
         </div>
       )}

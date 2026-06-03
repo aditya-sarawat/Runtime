@@ -4,17 +4,26 @@ const InstallModal = ({ isOpen, onClose, extensionName }) => {
   if (!isOpen) return null;
 
   const displayName = extensionName === 'cf-power-tools' ? 'CF Power Tools' : 'CP Contest Tracker';
-  const zipName = extensionName === 'cf-power-tools' ? 'cf-dashboard.zip' : 'cp-contest-tracker.zip';
+  const zipName = extensionName === 'cf-power-tools' ? 'cf_power_tools.zip' : 'cp-contest-tracker.zip';
 
   const triggerDownload = () => {
-    // Generate a dummy download for the zip to make it feel real/interactive
-    const element = document.createElement("a");
-    const file = new Blob(["mock zip content"], { type: 'text/plain' });
-    element.href = URL.createObjectURL(file);
-    element.download = zipName;
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    if (extensionName === 'cf-power-tools') {
+      const element = document.createElement("a");
+      element.href = '/cf_power_tools.zip';
+      element.download = 'cf_power_tools.zip';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    } else {
+      // Generate a dummy download for the zip to make it feel real/interactive
+      const element = document.createElement("a");
+      const file = new Blob(["mock zip content"], { type: 'text/plain' });
+      element.href = URL.createObjectURL(file);
+      element.download = zipName;
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
   };
 
   return (

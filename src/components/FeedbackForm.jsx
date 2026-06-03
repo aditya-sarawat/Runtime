@@ -33,7 +33,7 @@ const FeedbackForm = ({ onBack }) => {
     if (field === 'message') setMessage(val);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name || !email || !message) {
       setConsoleLogs((prev) => [...prev, 'ERR: VALIDATION FAILED - MISSING REQUIRED FIELDS']);
@@ -47,30 +47,55 @@ const FeedbackForm = ({ onBack }) => {
       `DATA: { CATEGORY: "${category}", EMAIL: "${email}" }`,
     ]);
 
-    const submissionTimeline = [
-      { delay: 400, log: 'NET: RESOLVING INTAKE_DAEMON ROUTE...' },
-      { delay: 800, log: 'NET: ESTABLISHING SECURE PROTOCOL TUNNEL...' },
-      { delay: 1200, log: 'SEC: SIGNING TRANSACTION ENVELOPE...' },
-      { delay: 1600, log: 'SYS: TRANSMITTING PACKETS (3.44 KB)...' },
-      {
-        delay: 2000,
-        log: 'SYS: TRANSACTION ACCEPTED BY REMOTE SOCKET.',
-        action: () => {
-          // Generate a mock hash
-          const hash = '0x' + Array.from({ length: 40 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-          setTxHash(hash);
-          setSubmitSuccess(true);
-          setIsSubmitting(false);
-        },
-      },
-    ];
+    const appendLog = (log) => {
+      setConsoleLogs((prev) => [...prev, log]);
+    };
 
-    submissionTimeline.forEach(({ delay, log, action }) => {
-      setTimeout(() => {
-        setConsoleLogs((prev) => [...prev, log]);
-        if (action) action();
-      }, delay);
-    });
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    try {
+      await sleep(400);
+      appendLog('NET: RESOLVING INTAKE_DAEMON ROUTE...');
+      await sleep(400);
+      appendLog('NET: ESTABLISHING SECURE PROTOCOL TUNNEL...');
+      await sleep(400);
+      appendLog('SEC: SIGNING TRANSACTION ENVELOPE...');
+      await sleep(400);
+      appendLog('SYS: TRANSMITTING PACKETS (3.44 KB)...');
+
+      const response = await fetch('/api/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          category,
+          name,
+          email,
+          subject,
+          message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'INTAKE_DAEMON REJECTED PACKETS');
+      }
+
+      await sleep(400);
+      appendLog('SYS: TRANSACTION ACCEPTED BY REMOTE SOCKET.');
+      await sleep(300);
+      appendLog(`SYS: REMOTE DB WRITE CONFIRMED. ID: ${data.insertedId}`);
+
+      setTxHash(data.txHash);
+      setSubmitSuccess(true);
+    } catch (error) {
+      await sleep(400);
+      appendLog(`ERR: TRANSMISSION FAILURE - ${error.message.toUpperCase()}`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const resetForm = () => {
