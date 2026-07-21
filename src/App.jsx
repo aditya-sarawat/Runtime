@@ -11,6 +11,7 @@ import FeedbackForm from './components/FeedbackForm';
 import About from './components/About';
 import TermsOfService from './components/TermsOfService';
 import ThemeTransition from './components/ThemeTransition';
+import SEO from './components/SEO';
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -121,6 +122,11 @@ function AppContent({ theme, toggleTheme }) {
         <Routes>
           <Route path="/" element={
             <>
+              <SEO 
+                title="Runtime Studio" 
+                description="High-performance software infrastructure, extensions, and automated digital tools built for developer workloads."
+                url="/"
+              />
               {/* 2. HERO SECTION */}
               <Hero />
 
@@ -133,31 +139,66 @@ function AppContent({ theme, toggleTheme }) {
           } />
 
           <Route path="/cf-power-tools" element={
-            <ExtensionDetails 
-              extensionId="cf-power-tools" 
-              onBack={() => navigate('/')} 
-              onDownload={handleDownload} 
-            />
+            <>
+              <SEO 
+                title="CF Power Tools" 
+                description="Analytics dashboard for Codeforces profile pages with efficiency meters, tag power radars, and performance recommendations."
+                url="/cf-power-tools"
+              />
+              <ExtensionDetails 
+                extensionId="cf-power-tools" 
+                onBack={() => navigate('/')} 
+                onDownload={handleDownload} 
+              />
+            </>
           } />
 
           <Route path="/cp-contest-tracker" element={
-            <ExtensionDetails 
-              extensionId="cp-contest-tracker" 
-              onBack={() => navigate('/')} 
-              onDownload={handleDownload} 
-            />
+            <>
+              <SEO 
+                title="CP Contest Tracker" 
+                description="Track upcoming competitive programming contests across 8+ platforms with automatic calendar synchronization."
+                url="/cp-contest-tracker"
+              />
+              <ExtensionDetails 
+                extensionId="cp-contest-tracker" 
+                onBack={() => navigate('/')} 
+                onDownload={handleDownload} 
+              />
+            </>
           } />
 
           <Route path="/feedback" element={
-            <FeedbackForm onBack={() => navigate('/')} />
+            <>
+              <SEO 
+                title="Feedback & Feature Requests" 
+                description="Have an idea, bug report, or feature suggestion for Runtime Studio? Let us know."
+                url="/feedback"
+              />
+              <FeedbackForm onBack={() => navigate('/')} />
+            </>
           } />
 
           <Route path="/about" element={
-            <About onBack={() => navigate('/')} />
+            <>
+              <SEO 
+                title="About Us" 
+                description="Runtime Studio is a workspace dedicated to building high-performance software tools and lightweight browser extensions."
+                url="/about"
+              />
+              <About onBack={() => navigate('/')} />
+            </>
           } />
 
           <Route path="/terms" element={
-            <TermsOfService onBack={() => navigate('/')} />
+            <>
+              <SEO 
+                title="Terms of Service" 
+                description="Operational licensing and usage guidelines for Runtime Studio extensions and automated digital tools."
+                url="/terms"
+              />
+              <TermsOfService onBack={() => navigate('/')} />
+            </>
           } />
         </Routes>
       </main>

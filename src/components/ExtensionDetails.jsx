@@ -56,10 +56,10 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
     <div className="w-full flex-grow flex flex-col bg-rich-black transition-colors duration-300">
       
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20 flex flex-col gap-12 w-full">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-8 md:py-12 flex flex-col gap-8 w-full">
         
         {/* Navigation Bar */}
-        <div className="flex justify-between items-center pb-6 border-b border-charcoal">
+        <div className="flex justify-between items-center pb-4 border-b border-charcoal">
           <button
             onClick={onBack}
             className="text-sm font-sans text-muted-gray hover:text-off-white transition-colors cursor-pointer flex items-center gap-2"
@@ -72,7 +72,7 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
         </div>
 
         {/* Product Details Header */}
-        <div className="flex flex-col gap-4 max-w-3xl text-left">
+        <div className="flex flex-col gap-3 max-w-3xl text-left">
           <h1 className="text-3xl sm:text-5xl font-bold font-sans tracking-tight text-off-white">
             {title}
           </h1>
@@ -82,7 +82,7 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
         </div>
 
         {/* Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start text-left pt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start text-left pt-4">
           
           {/* Features Column */}
           <div className="flex flex-col gap-8">

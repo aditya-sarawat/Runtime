@@ -12,11 +12,11 @@ const LoadingScreen = ({ onComplete }) => {
     };
   }, []);
 
-  // Smooth minimalist progress ticker
+  // Fast smooth minimalist progress ticker
   useEffect(() => {
     let currentProgress = 0;
     const interval = setInterval(() => {
-      const inc = Math.floor(Math.random() * 8) + 6;
+      const inc = Math.floor(Math.random() * 15) + 15;
       currentProgress = Math.min(100, currentProgress + inc);
       setProgress(currentProgress);
 
@@ -24,10 +24,10 @@ const LoadingScreen = ({ onComplete }) => {
         clearInterval(interval);
         const timer = setTimeout(() => {
           setIsRevealing(true);
-        }, 300);
+        }, 150);
         return () => clearTimeout(timer);
       }
-    }, 45);
+    }, 25);
 
     return () => clearInterval(interval);
   }, []);
@@ -37,7 +37,7 @@ const LoadingScreen = ({ onComplete }) => {
     if (isRevealing) {
       const timer = setTimeout(() => {
         onComplete();
-      }, 500);
+      }, 250);
       return () => clearTimeout(timer);
     }
   }, [isRevealing, onComplete]);

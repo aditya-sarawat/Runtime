@@ -3,10 +3,10 @@ const TermsOfService = ({ onBack }) => {
     <div className="w-full flex-grow flex flex-col bg-rich-black transition-colors duration-300">
       
       {/* Container */}
-      <div className="max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-20 flex flex-col gap-10 w-full text-left">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 py-8 md:py-12 flex flex-col gap-6 w-full text-left">
         
         {/* Top Nav */}
-        <div className="flex justify-between items-center pb-6 border-b border-charcoal">
+        <div className="flex justify-between items-center pb-4 border-b border-charcoal">
           <button
             onClick={onBack}
             className="text-sm font-sans text-muted-gray hover:text-off-white transition-colors cursor-pointer flex items-center gap-2"
@@ -19,7 +19,7 @@ const TermsOfService = ({ onBack }) => {
         </div>
 
         {/* Content */}
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-6">
           <div>
             <h1 className="text-3xl sm:text-4xl font-bold font-sans tracking-tight text-off-white mb-4">
               Terms of Service

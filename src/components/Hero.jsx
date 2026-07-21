@@ -1,11 +1,11 @@
 const Hero = () => {
   return (
-    <section className="w-full border-b border-charcoal py-20 md:py-32 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-16 md:gap-24">
+    <section className="w-full border-b border-charcoal py-12 md:py-18 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-10 md:gap-14">
         
         {/* Main Headline */}
         <div className="max-w-5xl">
-          <p className="text-sm font-mono text-neon-green uppercase tracking-widest mb-6 font-semibold">
+          <p className="text-sm font-mono text-neon-green uppercase tracking-widest mb-3 font-semibold">
             Bespoke Engineering
           </p>
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tight leading-[0.95] text-off-white text-left">
@@ -14,12 +14,12 @@ const Hero = () => {
         </div>
 
         {/* 2-Column Minimalist Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 pt-8 border-t border-charcoal">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 pt-6 border-t border-charcoal">
           
           {/* Purpose */}
           <div className="flex flex-col justify-between">
             <div>
-              <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest mb-4 font-semibold">
+              <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest mb-2 font-semibold">
                 Purpose
               </h3>
               <p className="text-base md:text-lg text-muted-gray font-sans leading-relaxed text-left max-w-md">
@@ -31,7 +31,7 @@ const Hero = () => {
           {/* Capabilities */}
           <div className="flex flex-col justify-between">
             <div>
-              <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest mb-4 font-semibold">
+              <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest mb-2 font-semibold">
                 Capabilities
               </h3>
               <ul className="space-y-3 font-sans text-base text-left">

@@ -3,10 +3,10 @@ const About = ({ onBack }) => {
     <div className="w-full flex-grow flex flex-col bg-rich-black transition-colors duration-300">
       
       {/* Container */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20 flex flex-col gap-12 w-full">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-8 md:py-12 flex flex-col gap-8 w-full">
         
         {/* Navigation / Header */}
-        <div className="flex justify-between items-center pb-6 border-b border-charcoal">
+        <div className="flex justify-between items-center pb-4 border-b border-charcoal">
           <button
             onClick={onBack}
             className="text-sm font-sans text-muted-gray hover:text-off-white transition-colors cursor-pointer flex items-center gap-2"
@@ -19,10 +19,10 @@ const About = ({ onBack }) => {
         </div>
 
         {/* Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start text-left">
           
           {/* Left Column: Mission & Story */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6">
             <div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-sans tracking-tight text-off-white mb-6">
                 Runtime Studio

@@ -5,12 +5,16 @@ import { injectSpeedInsights } from '@vercel/speed-insights'
 import './index.css'
 import App from './App.jsx'
 
+import { HelmetProvider } from 'react-helmet-async'
+
 // Initialize Vercel Analytics and Speed Insights
 inject()
 injectSpeedInsights()
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
   </StrictMode>,
 )
