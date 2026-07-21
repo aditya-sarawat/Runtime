@@ -4,8 +4,8 @@ import PipelineVisualizer from './PipelineVisualizer';
 
 const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
   return (
-    <section id="solutions" className="w-full border-b border-charcoal py-12 md:py-16 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-8">
+    <section id="solutions" className="w-full border-b border-charcoal py-10 sm:py-14 md:py-16 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 flex flex-col gap-6 sm:gap-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-charcoal">

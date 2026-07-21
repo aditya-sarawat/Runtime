@@ -73,7 +73,7 @@ const FeedbackForm = ({ onBack }) => {
     <div className="w-full flex-grow flex flex-col bg-rich-black transition-colors duration-300">
       
       {/* Container */}
-      <div className="max-w-3xl mx-auto px-6 md:px-12 py-8 md:py-12 flex flex-col gap-8 w-full text-left">
+      <div className="max-w-3xl mx-auto px-4 sm:px-8 md:px-12 py-8 md:py-12 flex flex-col gap-8 w-full text-left">
         
         {/* Top Nav */}
         <div className="flex justify-between items-center pb-4 border-b border-charcoal">

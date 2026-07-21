@@ -1,14 +1,14 @@
 const Hero = () => {
   return (
-    <section className="w-full border-b border-charcoal py-12 md:py-18 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-10 md:gap-14">
+    <section className="w-full border-b border-charcoal py-10 sm:py-14 md:py-18 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 flex flex-col gap-8 sm:gap-10 md:gap-14">
         
         {/* Main Headline */}
         <div className="max-w-5xl">
-          <p className="text-sm font-mono text-neon-green uppercase tracking-widest mb-3 font-semibold">
+          <p className="text-xs sm:text-sm font-mono text-neon-green uppercase tracking-widest mb-3 font-semibold">
             Bespoke Engineering
           </p>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tight leading-[0.95] text-off-white text-left">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tight leading-[0.98] sm:leading-[0.95] text-off-white text-left break-words">
             High-performance software infrastructure & automated digital tools.
           </h1>
         </div>
