@@ -1,93 +1,81 @@
-import Crosshair from './Crosshair';
-
 const About = ({ onBack }) => {
   return (
     <div className="w-full flex-grow flex flex-col bg-rich-black transition-colors duration-300">
       
-      {/* Header bar */}
-      <div className="border-b border-charcoal px-6 md:px-12 py-6 bg-panel-header/20 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative">
-        <Crosshair position="bottom-right" />
-        <button
-          onClick={onBack}
-          className="font-mono text-xs font-bold text-muted-gray hover:text-neon-green transition-colors cursor-pointer"
-        >
-          ← BACK TO SUITE
-        </button>
-        <span className="font-mono text-[11px] text-muted-gray uppercase">
-          SYS_INFO // ABOUT_US
-        </span>
-      </div>
-
-      {/* Main Grid Body */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 w-full border-b border-charcoal flex-grow">
+      {/* Container */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20 flex flex-col gap-12 w-full">
         
-        {/* Left Column: Mission & Story */}
-        <div className="p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-charcoal flex flex-col justify-between relative bg-card-bg text-left">
-          <Crosshair position="bottom-right" />
+        {/* Navigation / Header */}
+        <div className="flex justify-between items-center pb-6 border-b border-charcoal">
+          <button
+            onClick={onBack}
+            className="text-xs font-sans text-muted-gray hover:text-off-white transition-colors cursor-pointer flex items-center gap-2"
+          >
+            ← Back to Home
+          </button>
+          <span className="text-xs font-mono text-neon-green uppercase tracking-widest font-semibold">
+            About Us
+          </span>
+        </div>
+
+        {/* Content Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start text-left">
           
-          <div className="space-y-8">
+          {/* Left Column: Mission & Story */}
+          <div className="flex flex-col gap-8">
             <div>
-              <span className="font-mono text-[11px] text-neon-green font-bold block mb-4 uppercase tracking-widest">// CORE IDENTITY</span>
-              <h2 className="font-sans font-black text-4xl sm:text-5xl text-off-white uppercase tracking-tighter leading-none mb-6">
-                RUNTIME® STUDIO
-              </h2>
-              <p className="text-sm sm:text-base text-muted-gray font-sans leading-relaxed">
-                Runtime® is a developer workspace dedicated to building high-performance, radical software infrastructure and automated digital tools. We eliminate bloat, prioritize extreme system optimization, and develop highly focused extensions and runtimes designed for demanding developer workloads.
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-sans tracking-tight text-off-white mb-6">
+                Runtime Studio
+              </h1>
+              <p className="text-base text-muted-gray font-sans leading-relaxed">
+                Runtime is a workspace dedicated to building high-performance software tools and lightweight browser extensions. We eliminate bloat, prioritize extreme system optimization, and develop tools designed for demanding developer workloads.
               </p>
             </div>
 
-            <div className="space-y-4">
-              <span className="font-mono text-[11px] text-muted-gray block uppercase tracking-widest">// RADICAL PHILOSOPHY</span>
-              <div className="space-y-4 font-sans text-xs sm:text-sm text-muted-gray leading-relaxed">
+            <div className="flex flex-col gap-6 pt-6 border-t border-charcoal">
+              <h3 className="text-xs font-sans text-muted-gray uppercase tracking-widest font-semibold">
+                Design & Engineering Philosophy
+              </h3>
+              <div className="space-y-4 text-sm text-muted-gray leading-relaxed font-sans">
                 <p>
-                  <strong>01 / Efficiency Above All:</strong> Every line of code must justify its bytes. We build extensions with lightweight backgrounds, utilizing event-based APIs rather than polling daemons.
+                  <strong className="text-off-white font-semibold">01 / Efficiency Above All:</strong> Every line of code must justify its bytes. We build extensions with lightweight backgrounds, utilizing event-based APIs rather than polling daemons.
                 </p>
                 <p>
-                  <strong>02 / Brutalist Aesthetics:</strong> Information density and usability are our core design values. We employ bold margins, solid typography, high contrast, and dynamic micro-animations to create clean, expressive user terminals.
+                  <strong className="text-off-white font-semibold">02 / Minimalist Design:</strong> Clean, intentional layouts with negative space, high contrast typography, and absolute focus on essential usability.
                 </p>
                 <p>
-                  <strong>03 / Absolute Integrity:</strong> Your data stays local. Our tools (such as the Contest Tracker or CF Power Tools) run entirely inside sandboxed runtime layers, respecting privacy guidelines.
+                  <strong className="text-off-white font-semibold">03 / Privacy First:</strong> Your data stays local. Our tools execute inside sandboxed runtime layers, respecting user privacy.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="mt-12 font-mono text-[11px] text-charcoal select-none">
-            ENGINE_LOG: OK // [INIT_2026]
-          </div>
-        </div>
-
-        {/* Right Column: Architecture & Core Stack */}
-        <div className="p-8 lg:p-12 flex flex-col justify-between relative text-left">
-          <Crosshair position="bottom-right" />
-          
-          <div className="space-y-8">
-            <div className="space-y-3">
-              <span className="font-mono text-[11px] text-muted-gray block uppercase tracking-widest">// ACTIVE PROJECT REPOSITORIES</span>
-              <div className="border border-charcoal p-4 font-mono text-[11px] text-muted-gray space-y-2 bg-panel-inner transition-colors duration-300">
-                <div className="flex justify-between">
-                  <span className="text-off-white font-bold">✓ RUNTIME_CORE</span>
-                  <span className="text-neon-green">ACTIVE [v1.0.4]</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-off-white font-bold">✓ CF_POWER_TOOLS</span>
-                  <span className="text-neon-green">ACTIVE [v1.0.0]</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-off-white font-bold">✓ CP_CONTEST_TRACKER</span>
-                  <span className="text-neon-green">ACTIVE [v1.0.0]</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-gray">✕ PIPELINES_SAAS</span>
-                  <span className="text-charcoal">QUEUED [v3.0.0]</span>
-                </div>
+          {/* Right Column: Status & Stack */}
+          <div className="bg-card-bg border border-charcoal rounded-xl p-8 flex flex-col gap-6">
+            <h3 className="text-xs font-sans text-muted-gray uppercase tracking-widest font-semibold">
+              Project Repositories & Status
+            </h3>
+            
+            <div className="divide-y divide-charcoal text-xs font-sans">
+              <div className="py-3 flex justify-between items-center">
+                <span className="text-off-white font-medium">Runtime Core Engine</span>
+                <span className="text-neon-green font-mono">v1.0.4 • Active</span>
+              </div>
+              <div className="py-3 flex justify-between items-center">
+                <span className="text-off-white font-medium">CF Power Tools</span>
+                <span className="text-neon-green font-mono">v1.0.0 • Active</span>
+              </div>
+              <div className="py-3 flex justify-between items-center">
+                <span className="text-off-white font-medium">CP Contest Tracker</span>
+                <span className="text-neon-green font-mono">v1.0.0 • Testing</span>
+              </div>
+              <div className="py-3 flex justify-between items-center text-muted-gray">
+                <span>SaaS Data Pipelines</span>
+                <span className="font-mono">v3.0.0 • In Pipeline</span>
               </div>
             </div>
           </div>
 
-          <div className="mt-12 font-mono text-[11px] text-charcoal select-none">
-            SPEC_STABILITY: HIGH // SYS_OK
-          </div>
         </div>
 
       </div>
@@ -96,3 +84,4 @@ const About = ({ onBack }) => {
 };
 
 export default About;
+

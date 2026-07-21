@@ -40,19 +40,19 @@ function App() {
 
     const target = theme === 'dark' ? 'light' : 'dark';
     
-    // 1. Trigger cover block transition
+    // 1. Trigger cover fade
     setThemeTransition({ target, stage: 'covering' });
 
-    // 2. Swap theme halfway (at 350ms) and trigger uncover transition
+    // 2. Swap theme halfway (at 250ms) and trigger uncover fade
     setTimeout(() => {
       setTheme(target);
       setThemeTransition({ target, stage: 'uncovering' });
-    }, 350);
+    }, 250);
 
-    // 3. Clear transition (at 750ms) to clean up DOM
+    // 3. Clear transition (at 550ms)
     setTimeout(() => {
       setThemeTransition(null);
-    }, 750);
+    }, 550);
   };
 
   return (
@@ -107,11 +107,8 @@ function AppContent({ theme, toggleTheme }) {
     <>
       {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
       <div className="min-h-screen bg-rich-black text-off-white flex flex-col relative transition-colors duration-300">
-      
-      {/* Background CAD-grid Overlay pattern */}
-      <div className="absolute inset-0 cad-grid pointer-events-none opacity-50 z-0"></div>
 
-      {/* 1. UTILITY NAVIGATION BAR */}
+      {/* 1. NAVIGATION BAR */}
       <Header 
         theme={theme} 
         toggleTheme={toggleTheme} 
@@ -124,7 +121,7 @@ function AppContent({ theme, toggleTheme }) {
         <Routes>
           <Route path="/" element={
             <>
-              {/* 2. HERO ENGINE SECTION */}
+              {/* 2. HERO SECTION */}
               <Hero />
 
               {/* 3. SOLUTIONS & TOOLS GRID */}
@@ -165,12 +162,7 @@ function AppContent({ theme, toggleTheme }) {
         </Routes>
       </main>
 
-      {/* Spacer Grid Divider to separate Body and Footer */}
-      <div className="h-12 md:h-20 border-b border-charcoal relative bg-panel-header/10 flex items-center px-6 md:px-12 select-none pointer-events-none transition-colors duration-300">
-        <span className="font-mono text-[11px] text-muted-gray/50 uppercase tracking-widest">// TERMINAL_END // ROUTE_TO_FOOTER_INTERFACE</span>
-      </div>
-
-      {/* 4. SYSTEMATIC FOOTER */}
+      {/* 4. FOOTER */}
       <Footer />
 
       {/* 5. INSTALLATION GUIDE MODAL */}

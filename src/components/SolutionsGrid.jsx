@@ -1,129 +1,135 @@
-import Crosshair from './Crosshair';
 import BrowserMockup from './BrowserMockup';
 import NodePipeline from './NodePipeline';
 import PipelineVisualizer from './PipelineVisualizer';
 
 const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
   return (
-    <section id="solutions" className="border-b border-charcoal flex flex-col relative">
-      <Crosshair position="bottom-left" />
-      <Crosshair position="bottom-right" />
-      
-      {/* Header Row */}
-      <div className="border-b border-charcoal px-6 md:px-12 py-6 flex flex-col sm:flex-row justify-between items-start sm:items-center bg-panel-header/30 select-none transition-colors duration-300 relative">
-        <Crosshair position="bottom-right" />
-        <span className="font-mono text-[11px] text-muted-gray uppercase tracking-widest">// SOLUTIONS ENGINE // ACTIVE: EXTENSIONS</span>
-        <span className="font-mono text-[11px] text-muted-gray mt-1.5 sm:mt-0 uppercase">SUITE_BUILD: 2026.06.02.26</span>
-      </div>
-
-      {/* Notice Banner */}
-      <div className="border-b border-charcoal px-6 md:px-12 py-4 bg-neon-green/5 flex flex-col md:flex-row items-start md:items-center gap-4 relative transition-colors duration-300">
-        <Crosshair position="bottom-right" />
-        <div className="flex items-center gap-2 select-none shrink-0">
-          <span className="inline-block w-2 h-2 bg-neon-green animate-pulse rounded-none"></span>
-          <span className="font-mono text-[10px] text-neon-green font-black uppercase tracking-wider border border-neon-green/30 px-2 py-0.5 bg-neon-green/10">
-            SYS_NOTICE // BETA_TESTING
-          </span>
-        </div>
-        <p className="font-mono text-[11px] text-muted-gray leading-relaxed text-left">
-          We are currently testing our extensions. They will be available directly on the Chrome Web Store soon. Additional browser engine support is planned for future rollouts once the current testing phase concludes.
-        </p>
-      </div>
-
-      {/* Matrix Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 relative">
+    <section id="solutions" className="w-full border-b border-charcoal py-20 md:py-28 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-12">
         
-        {/* Block A: CF Power Tools - Active Core */}
-        <div className="group border-b lg:border-b-0 lg:border-r border-charcoal p-8 lg:p-12 flex flex-col justify-between relative bg-card-bg">
-          <Crosshair position="bottom-right" />
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-charcoal">
           <div>
-            <div className="flex justify-between items-center mb-6 select-none">
-              <span className="font-mono text-[11px] text-muted-gray">01 / BROWSER RUNTIMES // ACTIVE CORE</span>
-              <span className="font-mono text-[11px] text-neon-green font-bold">[STATUS: ACTIVE_CORE]</span>
-            </div>
-            
-            <h3 className="font-sans font-black text-2xl text-off-white uppercase tracking-tight mb-6">
-              CF POWER TOOLS
-            </h3>
-
-            {/* CF Analytics dashboard mockup */}
-            <div className="my-6">
-              <BrowserMockup />
-            </div>
+            <span className="text-xs font-mono text-neon-green uppercase tracking-widest block mb-2 font-semibold">
+              Product Suite
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold font-sans tracking-tight text-off-white">
+              Extensions & Tools
+            </h2>
           </div>
-
-          <div className="mt-8 flex gap-4 border-t border-charcoal pt-4 select-none">
-            <button
-              onClick={(e) => { e.stopPropagation(); onDownload('cf-power-tools'); }}
-              className="flex-1 py-2.5 bg-off-white text-rich-black font-mono font-bold text-xs uppercase hover:bg-neon-green hover:text-black transition-all duration-300 cursor-pointer"
-            >
-              DOWNLOAD
-            </button>
-            <button
-              onClick={(e) => { e.stopPropagation(); onMoreInfo('cf-power-tools'); }}
-              className="flex-1 py-2.5 border border-charcoal text-off-white font-mono font-bold text-xs uppercase hover:border-muted-gray hover:text-neon-green transition-all duration-300 cursor-pointer"
-            >
-              MORE INFO
-            </button>
-          </div>
+          <p className="text-sm text-muted-gray max-w-md text-left">
+            We are currently testing our core extensions. Chrome Web Store listings and expanded browser engine support are rolling out soon.
+          </p>
         </div>
 
-        {/* Block B: CP Contest Tracker - Coming soon */}
-        <div className="group border-b lg:border-b-0 lg:border-r border-charcoal p-8 lg:p-12 flex flex-col justify-between cursor-not-allowed relative bg-card-bg">
-          <Crosshair position="bottom-right" />
-          <div>
-            <div className="flex justify-between items-center mb-6 select-none">
-              <span className="font-mono text-[11px] text-muted-gray">02 / BROWSER RUNTIMES // PIPELINE</span>
-              <span className="font-mono text-[11px] text-muted-gray/70 font-semibold">[STATUS: COMING SOON]</span>
+        {/* Product Cards Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          {/* Card 1: CF Power Tools - Active Core */}
+          <div className="bg-card-bg border border-charcoal rounded-xl p-8 flex flex-col justify-between hover:border-muted-gray/40 transition-all duration-300 shadow-sm">
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-xs font-mono text-muted-gray">01</span>
+                <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-neon-green/10 text-neon-green border border-neon-green/20">
+                  Active
+                </span>
+              </div>
+              
+              <h3 className="font-sans font-bold text-xl text-off-white mb-3">
+                CF Power Tools
+              </h3>
+              <p className="text-xs text-muted-gray font-sans leading-relaxed mb-6">
+                Analytics dashboard for Codeforces profile pages with efficiency meters, tag power radars, and recommendations.
+              </p>
+
+              {/* Analytics dashboard mockup */}
+              <div className="my-4">
+                <BrowserMockup />
+              </div>
             </div>
-            
-            <h3 className="font-sans font-black text-2xl text-muted-gray uppercase tracking-tight mb-6 flex items-center gap-2">
-              CP CONTEST TRACKER <span className="font-mono text-[10px] border border-muted-gray/30 px-1.5 py-0.5 text-muted-gray/70">COMING SOON</span>
-            </h3>
 
-            {/* Contest sync daemon visualizer (Faded) */}
-            <div className="my-6 opacity-40">
-              <NodePipeline />
-            </div>
-          </div>
-
-          <div className="mt-8 flex justify-between items-center border-t border-charcoal pt-4 select-none">
-            <span className="font-mono text-xs uppercase font-bold text-charcoal">
-              ROLLOUT PENDING
-            </span>
-            <span className="font-mono text-charcoal text-lg" title="Locked - Coming soon">
-              ⊘
-            </span>
-          </div>
-        </div>
-
-        {/* Block C: Runtime Core Engine - Upcoming Expansion */}
-        <div className="group p-8 lg:p-12 flex flex-col justify-between hover:bg-muted-gray/5 transition-colors duration-300 cursor-not-allowed relative bg-card-bg">
-          <Crosshair position="bottom-right" />
-          <div>
-            <div className="flex justify-between items-center mb-6 select-none">
-              <span className="font-mono text-[11px] text-muted-gray">03 / CLOUD PIPELINES // EXPANSION</span>
-              <span className="font-mono text-[11px] text-muted-gray/70 font-semibold">[STATUS: IN PIPELINE]</span>
-            </div>
-            
-            <h3 className="font-sans font-black text-2xl text-muted-gray uppercase tracking-tight mb-6 flex items-center gap-2">
-                  RUNTIME CORE ENGINE <span className="font-mono text-[10px] border border-muted-gray/30 px-1.5 py-0.5 text-muted-gray/70">PHASE 2</span>
-            </h3>
-
-            {/* Live SaaS visualizer (Faded) */}
-            <div className="my-6 opacity-40">
-              <PipelineVisualizer />
+            <div className="mt-8 flex gap-3 pt-4 border-t border-charcoal select-none">
+              <button
+                onClick={(e) => { e.stopPropagation(); onDownload('cf-power-tools'); }}
+                className="flex-1 py-2.5 bg-off-white text-rich-black font-sans font-semibold text-xs rounded-md hover:bg-neon-green hover:text-black transition-all duration-200 cursor-pointer"
+              >
+                Download
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); onMoreInfo('cf-power-tools'); }}
+                className="flex-1 py-2.5 border border-charcoal text-off-white font-sans font-semibold text-xs rounded-md hover:border-muted-gray hover:text-neon-green transition-all duration-200 cursor-pointer"
+              >
+                More Info
+              </button>
             </div>
           </div>
 
-          <div className="mt-8 flex justify-between items-center border-t border-charcoal pt-4 select-none">
-            <span className="font-mono text-xs uppercase font-bold text-charcoal">
-              EXPANSION WORKFLOW
-            </span>
-            <span className="font-mono text-charcoal text-lg" title="Locked - Coming in future rollout">
-              ⊘
-            </span>
+          {/* Card 2: CP Contest Tracker - Coming soon */}
+          <div className="bg-card-bg border border-charcoal rounded-xl p-8 flex flex-col justify-between opacity-85 transition-all duration-300">
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-xs font-mono text-muted-gray">02</span>
+                <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-muted-gray/10 text-muted-gray border border-muted-gray/20">
+                  Coming Soon
+                </span>
+              </div>
+              
+              <h3 className="font-sans font-bold text-xl text-off-white mb-3">
+                CP Contest Tracker
+              </h3>
+              <p className="text-xs text-muted-gray font-sans leading-relaxed mb-6">
+                Track upcoming competitive programming contests across 8+ platforms with automatic calendar synchronization.
+              </p>
+
+              {/* Visualizer (Faded) */}
+              <div className="my-4 opacity-50">
+                <NodePipeline />
+              </div>
+            </div>
+
+            <div className="mt-8 flex items-center justify-between pt-4 border-t border-charcoal select-none">
+              <span className="text-xs font-sans text-muted-gray">
+                Rollout Pending
+              </span>
+              <span className="text-xs font-mono text-muted-gray" title="Coming soon">
+                In Development
+              </span>
+            </div>
           </div>
+
+          {/* Card 3: Runtime Core Engine - Upcoming Expansion */}
+          <div className="bg-card-bg border border-charcoal rounded-xl p-8 flex flex-col justify-between opacity-85 transition-all duration-300">
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-xs font-mono text-muted-gray">03</span>
+                <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-muted-gray/10 text-muted-gray border border-muted-gray/20">
+                  Phase 2
+                </span>
+              </div>
+              
+              <h3 className="font-sans font-bold text-xl text-off-white mb-3">
+                Runtime Core Engine
+              </h3>
+              <p className="text-xs text-muted-gray font-sans leading-relaxed mb-6">
+                Cloud data pipeline and automated workflow engine scheduled for upcoming releases.
+              </p>
+
+              {/* Live SaaS visualizer (Faded) */}
+              <div className="my-4 opacity-50">
+                <PipelineVisualizer />
+              </div>
+            </div>
+
+            <div className="mt-8 flex items-center justify-between pt-4 border-t border-charcoal select-none">
+              <span className="text-xs font-sans text-muted-gray">
+                Expansion Workflow
+              </span>
+              <span className="text-xs font-mono text-muted-gray">
+                Planned
+              </span>
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -132,3 +138,4 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
 };
 
 export default SolutionsGrid;
+

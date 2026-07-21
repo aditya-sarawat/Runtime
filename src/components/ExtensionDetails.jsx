@@ -1,10 +1,9 @@
-import Crosshair from './Crosshair';
 import BrowserMockup from './BrowserMockup';
 import NodePipeline from './NodePipeline';
 
 const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
   const isCF = extensionId === 'cf-power-tools';
-  const title = isCF ? 'CF POWER TOOLS' : 'CP CONTEST TRACKER';
+  const title = isCF ? 'CF Power Tools' : 'CP Contest Tracker';
   const tagline = isCF 
     ? 'Injects a powerful analytics dashboard into any Codeforces profile page with efficiency meters, tag power radars, heatmaps, and personalized recommendations.'
     : 'Track upcoming competitive programming contests from Codeforces, CodeChef, LeetCode, AtCoder, HackerRank, HackerEarth, Toph, and GeeksforGeeks. Sync to Google Calendar.';
@@ -56,115 +55,115 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
   return (
     <div className="w-full flex-grow flex flex-col bg-rich-black transition-colors duration-300">
       
-      {/* Detail Header / Nav bar */}
-      <div className="border-b border-charcoal px-6 md:px-12 py-6 bg-panel-header/20 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative">
-        <Crosshair position="bottom-right" />
-        <button
-          onClick={onBack}
-          className="font-mono text-xs font-bold text-muted-gray hover:text-neon-green transition-colors cursor-pointer"
-        >
-          ← BACK TO SUITE
-        </button>
-        <span className="font-mono text-[11px] text-muted-gray uppercase">
-          EXTENSION DETAILS // {title}
-        </span>
-      </div>
-
-      {/* Detail Body */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 w-full border-b border-charcoal">
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20 flex flex-col gap-12 w-full">
         
-        {/* Left Column: Title & Features */}
-        <div className="p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-charcoal flex flex-col justify-between relative bg-card-bg">
-          <Crosshair position="bottom-right" />
-          <div className="space-y-8">
-            <div>
-              <span className="font-mono text-[11px] text-neon-green font-bold block mb-4 uppercase tracking-widest">
-                {isCF ? '// ACTIVE EXTENSION' : '// COMING SOON'}
-              </span>
-              <h2 className={`font-sans font-black text-4xl sm:text-5xl uppercase tracking-tighter leading-none mb-6 ${isCF ? 'text-off-white' : 'text-muted-gray'}`}>
-                {title}
-              </h2>
-              <p className="text-sm sm:text-base text-muted-gray font-sans leading-relaxed text-left max-w-lg">
-                {tagline}
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <span className="font-mono text-[11px] text-muted-gray block uppercase tracking-widest">// CORE CAPABILITIES</span>
-              <ul className="space-y-4 text-left">
-                {features.map((feature, i) => (
-                  <li key={i} className="flex gap-4">
-                    <span className="font-mono text-neon-green font-bold select-none text-xs">[{String(i + 1).padStart(2, '0')}]</span>
-                    <div>
-                      <h4 className="font-mono font-bold text-xs text-off-white uppercase">{feature.title}</h4>
-                      <p className="text-xs text-muted-gray leading-relaxed mt-1">{feature.desc}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-12 flex gap-4 pt-6 border-t border-charcoal">
-            {isCF ? (
-              <button
-                onClick={() => onDownload(extensionId)}
-                className="px-6 py-3 bg-off-white text-rich-black font-mono font-bold text-xs uppercase hover:bg-neon-green hover:text-black transition-all cursor-pointer"
-              >
-                DOWNLOAD EXTENSION
-              </button>
-            ) : (
-              <button
-                disabled
-                className="px-6 py-3 bg-charcoal text-muted-gray font-mono font-bold text-xs uppercase cursor-not-allowed"
-              >
-                ROLLOUT PENDING / COMING SOON
-              </button>
-            )}
-          </div>
+        {/* Navigation Bar */}
+        <div className="flex justify-between items-center pb-6 border-b border-charcoal">
+          <button
+            onClick={onBack}
+            className="text-xs font-sans text-muted-gray hover:text-off-white transition-colors cursor-pointer flex items-center gap-2"
+          >
+            ← Back to Home
+          </button>
+          <span className="text-xs font-mono text-neon-green uppercase tracking-widest font-semibold">
+            {isCF ? 'Active Extension' : 'Coming Soon'}
+          </span>
         </div>
 
-        {/* Right Column: Visual Mockups & Specs */}
-        <div className="p-8 lg:p-12 flex flex-col justify-between relative">
-          <div className="space-y-8">
+        {/* Product Details Header */}
+        <div className="flex flex-col gap-4 max-w-3xl text-left">
+          <h1 className="text-3xl sm:text-5xl font-bold font-sans tracking-tight text-off-white">
+            {title}
+          </h1>
+          <p className="text-base text-muted-gray font-sans leading-relaxed">
+            {tagline}
+          </p>
+        </div>
+
+        {/* Content Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start text-left pt-6">
+          
+          {/* Features Column */}
+          <div className="flex flex-col gap-8">
+            <h3 className="text-xs font-sans text-muted-gray uppercase tracking-widest font-semibold">
+              Core Capabilities
+            </h3>
+            <ul className="space-y-6">
+              {features.map((feature, i) => (
+                <li key={i} className="flex gap-4">
+                  <span className="font-mono text-neon-green font-semibold text-xs pt-0.5">
+                    0{i + 1}
+                  </span>
+                  <div>
+                    <h4 className="font-sans font-semibold text-sm text-off-white">
+                      {feature.title}
+                    </h4>
+                    <p className="text-xs text-muted-gray leading-relaxed mt-1 font-sans">
+                      {feature.desc}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="pt-6 border-t border-charcoal">
+              {isCF ? (
+                <button
+                  onClick={() => onDownload(extensionId)}
+                  className="px-6 py-3 bg-off-white text-rich-black font-sans font-semibold text-xs rounded-md hover:bg-neon-green hover:text-black transition-all cursor-pointer"
+                >
+                  Download Extension
+                </button>
+              ) : (
+                <button
+                  disabled
+                  className="px-6 py-3 bg-charcoal text-muted-gray font-sans font-semibold text-xs rounded-md cursor-not-allowed"
+                >
+                  Coming Soon
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Right Column: Preview & Specs */}
+          <div className="flex flex-col gap-8">
             <div>
-              <span className="font-mono text-[11px] text-muted-gray block mb-6 tracking-widest uppercase select-none">// RUNTIME PREVIEW</span>
-              <div className={`bg-panel-inner/40 p-4 border border-charcoal relative ${!isCF ? 'opacity-40' : ''}`}>
-                <Crosshair position="bottom-right" />
+              <h3 className="text-xs font-sans text-muted-gray uppercase tracking-widest font-semibold mb-4">
+                Preview
+              </h3>
+              <div className="bg-card-bg border border-charcoal rounded-xl p-4">
                 {isCF ? <BrowserMockup /> : <NodePipeline />}
               </div>
             </div>
 
-            <div className="space-y-4">
-              <span className="font-mono text-[11px] text-muted-gray block uppercase tracking-widest">// ARCHITECTURE DETAILS</span>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-panel-input p-4 border border-charcoal space-y-1">
-                  <span className="font-mono text-[10px] text-muted-gray uppercase">MANIFEST VERSION</span>
-                  <p className="font-mono text-xs text-off-white font-bold">V3 (LATEST)</p>
+            <div className="bg-card-bg border border-charcoal rounded-xl p-6 flex flex-col gap-4">
+              <h3 className="text-xs font-sans text-muted-gray uppercase tracking-widest font-semibold">
+                Extension Specifications
+              </h3>
+              <div className="grid grid-cols-2 gap-4 text-xs font-sans">
+                <div>
+                  <span className="text-muted-gray block mb-1">Manifest Version</span>
+                  <span className="text-off-white font-medium">Manifest V3</span>
                 </div>
-                <div className="bg-panel-input p-4 border border-charcoal space-y-1">
-                  <span className="font-mono text-[10px] text-muted-gray uppercase">PRIMARY PERMISSIONS</span>
-                  <p className="font-mono text-xs text-off-white font-bold truncate">
-                    {isCF ? 'Storage, Host URLs' : 'Storage, Identity, Alarms'}
-                  </p>
+                <div>
+                  <span className="text-muted-gray block mb-1">Permissions</span>
+                  <span className="text-off-white font-medium">
+                    {isCF ? 'Storage, Host URLs' : 'Storage, Identity'}
+                  </span>
                 </div>
-                <div className="bg-panel-input p-4 border border-charcoal space-y-1">
-                  <span className="font-mono text-[10px] text-muted-gray uppercase">CORE SCRIPTS</span>
-                  <p className="font-mono text-xs text-off-white font-bold">
-                    {isCF ? 'content.js, background.js' : 'background.js, popup.js'}
-                  </p>
+                <div>
+                  <span className="text-muted-gray block mb-1">Core Architecture</span>
+                  <span className="text-off-white font-medium">Event Background Service</span>
                 </div>
-                <div className="bg-panel-input p-4 border border-charcoal space-y-1">
-                  <span className="font-mono text-[10px] text-muted-gray uppercase">COMPATIBILITY</span>
-                  <p className="font-mono text-xs text-off-white font-bold">CHROMIUM / CHROME</p>
+                <div>
+                  <span className="text-muted-gray block mb-1">Target Platform</span>
+                  <span className="text-off-white font-medium">Chromium Browsers</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-12 font-mono text-[11px] text-charcoal select-none">
-            SPEC_VER: {isCF ? '1.0.0_BUILD_CF' : '1.0.0_BUILD_CP'}
-          </div>
         </div>
 
       </div>
@@ -174,3 +173,4 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
 };
 
 export default ExtensionDetails;
+

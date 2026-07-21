@@ -13,44 +13,42 @@
   --color-panel-input: var(--panel-input);
   --color-card-bg: var(--card-bg);
 
-  --font-sans: "Space Grotesk", sans-serif;
+  --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
 
 :root {
-  /* Default Dark Mode - Enhanced Contrast */
-  --bg-color: #0A0A0A;
-  --border-color: #2D2D2D; /* Lighter charcoal gridlines for visibility */
-  --text-color: #F5F5F5;
-  --text-muted: #9A9A9A; /* Brighter muted gray for readability (WCAG AA) */
-  --grid-color: rgba(45, 45, 45, 0.4);
-  --accent-color: #befd66; /* NVRMND signature lime */
+  /* Minimalist Dark Mode - Clean Obsidian */
+  --bg-color: #09090b;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --text-color: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --accent-color: #befd66;
   --selection-bg: #befd66;
   
-  --panel-bg: #000000;
-  --panel-header: #0F0F0F;
-  --panel-inner: #0A0A0A;
-  --panel-input: #070707;
-  --card-bg: #121212; /* Distinct, contrasty gray for dark cards */
+  --panel-bg: #121215;
+  --panel-header: #18181b;
+  --panel-inner: #0e0e11;
+  --panel-input: #18181b;
+  --card-bg: #121215;
   
   color-scheme: dark;
 }
 
 :root.light {
-  /* Brutalist Light Mode - Enhanced Contrast */
-  --bg-color: #F8F8F8;
-  --border-color: #C0C0C0; /* Crisper gridlines */
-  --text-color: #0F0F0F;
-  --text-muted: #4D4D4D; /* Darker muted text for high-contrast readability */
-  --grid-color: rgba(180, 180, 180, 0.4);
-  --accent-color: #388400; /* Richer green for print readability */
-  --selection-bg: #befd66; /* Keep neon green highlight */
+  /* Minimalist Light Mode - Crisp Alabaster */
+  --bg-color: #fafafa;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --text-color: #09090b;
+  --text-muted: #71717a;
+  --accent-color: #276200;
+  --selection-bg: #befd66;
   
-  --panel-bg: #FFFFFF;
-  --panel-header: #F0F0F0;
-  --panel-inner: #FAFAFA;
-  --panel-input: #F3F3F3;
-  --card-bg: #FFFFFF; /* High-contrast white for light cards */
+  --panel-bg: #ffffff;
+  --panel-header: #f4f4f5;
+  --panel-inner: #fafafa;
+  --panel-input: #f4f4f5;
+  --card-bg: #ffffff;
   
   color-scheme: light;
 }
@@ -63,39 +61,34 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
+  letter-spacing: -0.01em;
 }
 
-/* CAD Grid Background */
+/* CAD Grid Background Disabled for Minimalist Aesthetic */
 .cad-grid {
-  background-image: 
-    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-  background-size: 40px 40px;
-  transition: background-image 0.3s ease;
+  display: none;
 }
 
 /* Custom minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--bg-color);
-  border-left: 1px solid var(--border-color);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--border-color);
-  transition: background-color 0.3s ease;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
 }
 
-/* Selection style - NVRMND signature lime */
+/* Selection style */
 ::selection {
   background-color: var(--selection-bg);
   color: #000000;
@@ -104,3 +97,4 @@ body {
   background-color: var(--selection-bg);
   color: #000000;
 }
+
