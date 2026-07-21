@@ -79,11 +79,11 @@ const FeedbackForm = ({ onBack }) => {
         <div className="flex justify-between items-center pb-6 border-b border-charcoal">
           <button
             onClick={onBack}
-            className="text-xs font-sans text-muted-gray hover:text-off-white transition-colors cursor-pointer flex items-center gap-2"
+            className="text-sm font-sans text-muted-gray hover:text-off-white transition-colors cursor-pointer flex items-center gap-2"
           >
             ← Back to Home
           </button>
-          <span className="text-xs font-mono text-neon-green uppercase tracking-widest font-semibold">
+          <span className="text-sm font-mono text-neon-green uppercase tracking-widest font-semibold">
             Feedback
           </span>
         </div>
@@ -94,14 +94,14 @@ const FeedbackForm = ({ onBack }) => {
               <h1 className="text-3xl sm:text-4xl font-bold font-sans tracking-tight text-off-white mb-3">
                 Feedback & Feature Requests
               </h1>
-              <p className="text-sm text-muted-gray font-sans leading-relaxed">
+              <p className="text-base text-muted-gray font-sans leading-relaxed">
                 Have an idea, bug report, or feature suggestion? Let us know below.
               </p>
             </div>
 
             {/* Category Selector */}
             <div className="flex flex-col gap-3">
-              <label className="text-xs font-sans text-muted-gray uppercase tracking-wider font-semibold">
+              <label className="text-sm font-sans text-muted-gray uppercase tracking-wider font-semibold">
                 Category
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -114,7 +114,7 @@ const FeedbackForm = ({ onBack }) => {
                     key={target.id}
                     type="button"
                     onClick={() => setCategory(target.id)}
-                    className={`py-3 px-4 rounded-lg font-sans text-xs font-medium transition-all duration-200 cursor-pointer text-center ${
+                    className={`py-3 px-4 rounded-lg font-sans text-sm font-medium transition-all duration-200 cursor-pointer text-center ${
                       category === target.id
                         ? 'bg-neon-green/10 text-neon-green border border-neon-green/30'
                         : 'bg-card-bg border border-charcoal text-muted-gray hover:border-muted-gray hover:text-off-white'
@@ -129,7 +129,7 @@ const FeedbackForm = ({ onBack }) => {
             {/* Name & Email inputs */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-sans text-muted-gray font-medium">Your Name *</label>
+                <label className="text-sm font-sans text-muted-gray font-medium">Your Name *</label>
                 <input
                   type="text"
                   required
@@ -137,11 +137,11 @@ const FeedbackForm = ({ onBack }) => {
                   disabled={isSubmitting}
                   onChange={(e) => handleInputChange('name', e.target.value)}
                   placeholder="e.g. Alex Rivera"
-                  className="w-full bg-card-bg border border-charcoal rounded-lg px-4 py-3 text-xs text-off-white placeholder-muted-gray/50 focus:outline-none focus:border-neon-green transition-colors duration-200"
+                  className="w-full bg-card-bg border border-charcoal rounded-lg px-4 py-3 text-sm text-off-white placeholder-muted-gray/50 focus:outline-none focus:border-neon-green transition-colors duration-200"
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-sans text-muted-gray font-medium">Email Address *</label>
+                <label className="text-sm font-sans text-muted-gray font-medium">Email Address *</label>
                 <input
                   type="email"
                   required
@@ -149,27 +149,27 @@ const FeedbackForm = ({ onBack }) => {
                   disabled={isSubmitting}
                   onChange={(e) => handleInputChange('email', e.target.value)}
                   placeholder="e.g. alex@example.com"
-                  className="w-full bg-card-bg border border-charcoal rounded-lg px-4 py-3 text-xs text-off-white placeholder-muted-gray/50 focus:outline-none focus:border-neon-green transition-colors duration-200"
+                  className="w-full bg-card-bg border border-charcoal rounded-lg px-4 py-3 text-sm text-off-white placeholder-muted-gray/50 focus:outline-none focus:border-neon-green transition-colors duration-200"
                 />
               </div>
             </div>
 
             {/* Subject */}
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-sans text-muted-gray font-medium">Subject</label>
+              <label className="text-sm font-sans text-muted-gray font-medium">Subject</label>
               <input
                 type="text"
                 value={subject}
                 disabled={isSubmitting}
                 onChange={(e) => handleInputChange('subject', e.target.value)}
                 placeholder="e.g. Feature request for dark mode sync"
-                className="w-full bg-card-bg border border-charcoal rounded-lg px-4 py-3 text-xs text-off-white placeholder-muted-gray/50 focus:outline-none focus:border-neon-green transition-colors duration-200"
+                className="w-full bg-card-bg border border-charcoal rounded-lg px-4 py-3 text-sm text-off-white placeholder-muted-gray/50 focus:outline-none focus:border-neon-green transition-colors duration-200"
               />
             </div>
 
             {/* Message Details */}
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-sans text-muted-gray font-medium">Message *</label>
+              <label className="text-sm font-sans text-muted-gray font-medium">Message *</label>
               <textarea
                 required
                 rows="5"
@@ -177,7 +177,7 @@ const FeedbackForm = ({ onBack }) => {
                 disabled={isSubmitting}
                 onChange={(e) => handleInputChange('message', e.target.value)}
                 placeholder="Describe your suggestion or report details..."
-                className="w-full bg-card-bg border border-charcoal rounded-lg px-4 py-3 text-xs text-off-white placeholder-muted-gray/50 focus:outline-none focus:border-neon-green transition-colors duration-200 resize-none"
+                className="w-full bg-card-bg border border-charcoal rounded-lg px-4 py-3 text-sm text-off-white placeholder-muted-gray/50 focus:outline-none focus:border-neon-green transition-colors duration-200 resize-none"
               />
             </div>
 
@@ -186,7 +186,7 @@ const FeedbackForm = ({ onBack }) => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-3.5 text-xs font-sans font-semibold rounded-lg transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer ${
+                className={`w-full py-3.5 text-sm font-sans font-semibold rounded-lg transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer ${
                   isSubmitting
                     ? 'bg-charcoal text-muted-gray cursor-not-allowed'
                     : 'bg-off-white text-rich-black hover:bg-neon-green hover:text-black'
@@ -205,12 +205,12 @@ const FeedbackForm = ({ onBack }) => {
               </h2>
             </div>
             
-            <p className="text-sm text-muted-gray font-sans leading-relaxed">
+            <p className="text-base text-muted-gray font-sans leading-relaxed">
               Thank you! Your submission has been received. We review every piece of feedback carefully.
             </p>
 
             {txHash && (
-              <div className="bg-panel-header/50 border border-charcoal rounded-lg p-4 font-mono text-xs text-muted-gray space-y-1">
+              <div className="bg-panel-header/50 border border-charcoal rounded-lg p-4 font-mono text-sm text-muted-gray space-y-1">
                 <div>Reference ID: <span className="text-off-white">{txHash}</span></div>
                 <div>Category: <span className="text-off-white capitalize">{category.replace(/-/g, ' ')}</span></div>
               </div>
@@ -219,13 +219,13 @@ const FeedbackForm = ({ onBack }) => {
             <div className="flex gap-4 pt-4">
               <button
                 onClick={onBack}
-                className="px-6 py-3 bg-off-white text-rich-black font-sans font-semibold text-xs rounded-lg hover:bg-neon-green hover:text-black transition-all cursor-pointer"
+                className="px-6 py-3 bg-off-white text-rich-black font-sans font-semibold text-sm rounded-lg hover:bg-neon-green hover:text-black transition-all cursor-pointer"
               >
                 Back to Home
               </button>
               <button
                 onClick={resetForm}
-                className="px-6 py-3 border border-charcoal text-off-white font-sans font-semibold text-xs rounded-lg hover:border-muted-gray transition-all cursor-pointer"
+                className="px-6 py-3 border border-charcoal text-off-white font-sans font-semibold text-sm rounded-lg hover:border-muted-gray transition-all cursor-pointer"
               >
                 Submit Another
               </button>

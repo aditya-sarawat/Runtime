@@ -12,10 +12,10 @@ const Footer = () => {
           
           {/* Column 1: Products */}
           <div className="flex flex-col gap-4 text-left">
-            <h4 className="text-xs font-sans font-semibold text-off-white uppercase tracking-wider">
+            <h4 className="text-sm font-sans font-semibold text-off-white uppercase tracking-wider">
               Products
             </h4>
-            <ul className="space-y-2.5 font-sans text-xs text-muted-gray">
+            <ul className="space-y-2.5 font-sans text-sm text-muted-gray">
               <li><a href="#solutions" className="hover:text-neon-green transition-colors duration-200">Chrome Extensions</a></li>
               <li><Link to="/cf-power-tools" className="hover:text-neon-green transition-colors duration-200">CF Power Tools</Link></li>
               <li><Link to="/cp-contest-tracker" className="hover:text-neon-green transition-colors duration-200">CP Contest Tracker</Link></li>
@@ -24,10 +24,10 @@ const Footer = () => {
 
           {/* Column 2: Navigation */}
           <div className="flex flex-col gap-4 text-left">
-            <h4 className="text-xs font-sans font-semibold text-off-white uppercase tracking-wider">
+            <h4 className="text-sm font-sans font-semibold text-off-white uppercase tracking-wider">
               Company
             </h4>
-            <ul className="space-y-2.5 font-sans text-xs text-muted-gray">
+            <ul className="space-y-2.5 font-sans text-sm text-muted-gray">
               <li><Link to="/about" className="hover:text-neon-green transition-colors duration-200">About Us</Link></li>
               <li><Link to="/terms" className="hover:text-neon-green transition-colors duration-200">Terms of Service</Link></li>
               <li><Link to="/feedback" className="hover:text-neon-green transition-colors duration-200">Feedback & Requests</Link></li>
@@ -36,7 +36,7 @@ const Footer = () => {
 
           {/* Column 3: Newsletter */}
           <div id="newsletter" className="flex flex-col gap-4 text-left">
-            <h4 className="text-xs font-sans font-semibold text-off-white uppercase tracking-wider">
+            <h4 className="text-sm font-sans font-semibold text-off-white uppercase tracking-wider">
               Stay Updated
             </h4>
             <NewsletterForm />
@@ -45,9 +45,9 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-charcoal flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-sans text-muted-gray select-none">
+        <div className="pt-8 border-t border-charcoal flex flex-col sm:flex-row justify-between items-center gap-4 text-sm font-sans text-muted-gray select-none">
           <p>© 2026 RUNTIME. All rights reserved.</p>
-          <div className="flex items-center gap-2 font-mono text-xs">
+          <div className="flex items-center gap-2 font-mono text-sm">
             <span>Delhi, IN</span>
             <span>•</span>
             <DelhiClock minimal={true} />

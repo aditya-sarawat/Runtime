@@ -10,14 +10,14 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-charcoal">
           <div>
-            <span className="text-xs font-mono text-neon-green uppercase tracking-widest block mb-2 font-semibold">
+            <span className="text-sm font-mono text-neon-green uppercase tracking-widest block mb-2 font-semibold">
               Product Suite
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold font-sans tracking-tight text-off-white">
               Extensions & Tools
             </h2>
           </div>
-          <p className="text-sm text-muted-gray max-w-md text-left">
+          <p className="text-base text-muted-gray max-w-md text-left">
             We are currently testing our core extensions. Chrome Web Store listings and expanded browser engine support are rolling out soon.
           </p>
         </div>
@@ -29,8 +29,8 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
           <div className="bg-card-bg border border-charcoal rounded-xl p-8 flex flex-col justify-between hover:border-muted-gray/40 transition-all duration-300 shadow-sm">
             <div>
               <div className="flex justify-between items-center mb-6">
-                <span className="text-xs font-mono text-muted-gray">01</span>
-                <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-neon-green/10 text-neon-green border border-neon-green/20">
+                <span className="text-sm font-mono text-muted-gray">01</span>
+                <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-neon-green/10 text-neon-green border border-neon-green/20">
                   Active
                 </span>
               </div>
@@ -38,7 +38,7 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
               <h3 className="font-sans font-bold text-xl text-off-white mb-3">
                 CF Power Tools
               </h3>
-              <p className="text-xs text-muted-gray font-sans leading-relaxed mb-6">
+              <p className="text-sm text-muted-gray font-sans leading-relaxed mb-6">
                 Analytics dashboard for Codeforces profile pages with efficiency meters, tag power radars, and recommendations.
               </p>
 
@@ -51,13 +51,13 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
             <div className="mt-8 flex gap-3 pt-4 border-t border-charcoal select-none">
               <button
                 onClick={(e) => { e.stopPropagation(); onDownload('cf-power-tools'); }}
-                className="flex-1 py-2.5 bg-off-white text-rich-black font-sans font-semibold text-xs rounded-md hover:bg-neon-green hover:text-black transition-all duration-200 cursor-pointer"
+                className="flex-1 py-2.5 bg-off-white text-rich-black font-sans font-semibold text-sm rounded-md hover:bg-neon-green hover:text-black transition-all duration-200 cursor-pointer"
               >
                 Download
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); onMoreInfo('cf-power-tools'); }}
-                className="flex-1 py-2.5 border border-charcoal text-off-white font-sans font-semibold text-xs rounded-md hover:border-muted-gray hover:text-neon-green transition-all duration-200 cursor-pointer"
+                className="flex-1 py-2.5 border border-charcoal text-off-white font-sans font-semibold text-sm rounded-md hover:border-muted-gray hover:text-neon-green transition-all duration-200 cursor-pointer"
               >
                 More Info
               </button>
@@ -68,8 +68,8 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
           <div className="bg-card-bg border border-charcoal rounded-xl p-8 flex flex-col justify-between opacity-85 transition-all duration-300">
             <div>
               <div className="flex justify-between items-center mb-6">
-                <span className="text-xs font-mono text-muted-gray">02</span>
-                <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-muted-gray/10 text-muted-gray border border-muted-gray/20">
+                <span className="text-sm font-mono text-muted-gray">02</span>
+                <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-muted-gray/10 text-muted-gray border border-muted-gray/20">
                   Coming Soon
                 </span>
               </div>
@@ -77,7 +77,7 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
               <h3 className="font-sans font-bold text-xl text-off-white mb-3">
                 CP Contest Tracker
               </h3>
-              <p className="text-xs text-muted-gray font-sans leading-relaxed mb-6">
+              <p className="text-sm text-muted-gray font-sans leading-relaxed mb-6">
                 Track upcoming competitive programming contests across 8+ platforms with automatic calendar synchronization.
               </p>
 
@@ -88,10 +88,10 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
             </div>
 
             <div className="mt-8 flex items-center justify-between pt-4 border-t border-charcoal select-none">
-              <span className="text-xs font-sans text-muted-gray">
+              <span className="text-sm font-sans text-muted-gray">
                 Rollout Pending
               </span>
-              <span className="text-xs font-mono text-muted-gray" title="Coming soon">
+              <span className="text-sm font-mono text-muted-gray" title="Coming soon">
                 In Development
               </span>
             </div>
@@ -101,8 +101,8 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
           <div className="bg-card-bg border border-charcoal rounded-xl p-8 flex flex-col justify-between opacity-85 transition-all duration-300">
             <div>
               <div className="flex justify-between items-center mb-6">
-                <span className="text-xs font-mono text-muted-gray">03</span>
-                <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-muted-gray/10 text-muted-gray border border-muted-gray/20">
+                <span className="text-sm font-mono text-muted-gray">03</span>
+                <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-muted-gray/10 text-muted-gray border border-muted-gray/20">
                   Phase 2
                 </span>
               </div>
@@ -110,7 +110,7 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
               <h3 className="font-sans font-bold text-xl text-off-white mb-3">
                 Runtime Core Engine
               </h3>
-              <p className="text-xs text-muted-gray font-sans leading-relaxed mb-6">
+              <p className="text-sm text-muted-gray font-sans leading-relaxed mb-6">
                 Cloud data pipeline and automated workflow engine scheduled for upcoming releases.
               </p>
 
@@ -121,10 +121,10 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
             </div>
 
             <div className="mt-8 flex items-center justify-between pt-4 border-t border-charcoal select-none">
-              <span className="text-xs font-sans text-muted-gray">
+              <span className="text-sm font-sans text-muted-gray">
                 Expansion Workflow
               </span>
-              <span className="text-xs font-mono text-muted-gray">
+              <span className="text-sm font-mono text-muted-gray">
                 Planned
               </span>
             </div>

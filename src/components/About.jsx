@@ -9,11 +9,11 @@ const About = ({ onBack }) => {
         <div className="flex justify-between items-center pb-6 border-b border-charcoal">
           <button
             onClick={onBack}
-            className="text-xs font-sans text-muted-gray hover:text-off-white transition-colors cursor-pointer flex items-center gap-2"
+            className="text-sm font-sans text-muted-gray hover:text-off-white transition-colors cursor-pointer flex items-center gap-2"
           >
             ← Back to Home
           </button>
-          <span className="text-xs font-mono text-neon-green uppercase tracking-widest font-semibold">
+          <span className="text-sm font-mono text-neon-green uppercase tracking-widest font-semibold">
             About Us
           </span>
         </div>
@@ -27,16 +27,16 @@ const About = ({ onBack }) => {
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-sans tracking-tight text-off-white mb-6">
                 Runtime Studio
               </h1>
-              <p className="text-base text-muted-gray font-sans leading-relaxed">
+              <p className="text-lg text-muted-gray font-sans leading-relaxed">
                 Runtime is a workspace dedicated to building high-performance software tools and lightweight browser extensions. We eliminate bloat, prioritize extreme system optimization, and develop tools designed for demanding developer workloads.
               </p>
             </div>
 
             <div className="flex flex-col gap-6 pt-6 border-t border-charcoal">
-              <h3 className="text-xs font-sans text-muted-gray uppercase tracking-widest font-semibold">
+              <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest font-semibold">
                 Design & Engineering Philosophy
               </h3>
-              <div className="space-y-4 text-sm text-muted-gray leading-relaxed font-sans">
+              <div className="space-y-4 text-base text-muted-gray leading-relaxed font-sans">
                 <p>
                   <strong className="text-off-white font-semibold">01 / Efficiency Above All:</strong> Every line of code must justify its bytes. We build extensions with lightweight backgrounds, utilizing event-based APIs rather than polling daemons.
                 </p>
@@ -52,24 +52,24 @@ const About = ({ onBack }) => {
 
           {/* Right Column: Status & Stack */}
           <div className="bg-card-bg border border-charcoal rounded-xl p-8 flex flex-col gap-6">
-            <h3 className="text-xs font-sans text-muted-gray uppercase tracking-widest font-semibold">
+            <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest font-semibold">
               Project Repositories & Status
             </h3>
             
-            <div className="divide-y divide-charcoal text-xs font-sans">
-              <div className="py-3 flex justify-between items-center">
+            <div className="divide-y divide-charcoal text-sm font-sans">
+              <div className="py-3.5 flex justify-between items-center">
                 <span className="text-off-white font-medium">Runtime Core Engine</span>
                 <span className="text-neon-green font-mono">v1.0.4 • Active</span>
               </div>
-              <div className="py-3 flex justify-between items-center">
+              <div className="py-3.5 flex justify-between items-center">
                 <span className="text-off-white font-medium">CF Power Tools</span>
                 <span className="text-neon-green font-mono">v1.0.0 • Active</span>
               </div>
-              <div className="py-3 flex justify-between items-center">
+              <div className="py-3.5 flex justify-between items-center">
                 <span className="text-off-white font-medium">CP Contest Tracker</span>
                 <span className="text-neon-green font-mono">v1.0.0 • Testing</span>
               </div>
-              <div className="py-3 flex justify-between items-center text-muted-gray">
+              <div className="py-3.5 flex justify-between items-center text-muted-gray">
                 <span>SaaS Data Pipelines</span>
                 <span className="font-mono">v3.0.0 • In Pipeline</span>
               </div>

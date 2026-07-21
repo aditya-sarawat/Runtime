@@ -14,7 +14,7 @@ const Header = ({ theme, toggleTheme, onBrandClick, onNavigate }) => {
         </div>
 
         {/* Navigation & Actions */}
-        <div className="flex items-center gap-6 sm:gap-8 text-xs font-sans tracking-wide">
+        <div className="flex items-center gap-6 sm:gap-8 text-sm font-sans tracking-wide">
           <button 
             onClick={() => onNavigate('about')} 
             className="text-muted-gray hover:text-off-white transition-colors duration-200 cursor-pointer font-medium"
@@ -35,13 +35,13 @@ const Header = ({ theme, toggleTheme, onBrandClick, onNavigate }) => {
             title="Toggle theme mode"
           >
             <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
-            <span className="text-sm font-semibold">{theme === 'dark' ? '☼' : '☾'}</span>
+            <span className="text-base font-semibold">{theme === 'dark' ? '☼' : '☾'}</span>
           </button>
 
           {/* Primary CTA */}
           <button
             onClick={() => onNavigate('feedback')}
-            className="px-4 py-2 bg-off-white text-rich-black hover:bg-neon-green hover:text-black transition-all duration-200 text-xs font-semibold rounded-md cursor-pointer"
+            className="px-4 py-2 bg-off-white text-rich-black hover:bg-neon-green hover:text-black transition-all duration-200 text-sm font-semibold rounded-md cursor-pointer"
           >
             Feedback →
           </button>

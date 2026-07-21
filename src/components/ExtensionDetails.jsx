@@ -62,11 +62,11 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
         <div className="flex justify-between items-center pb-6 border-b border-charcoal">
           <button
             onClick={onBack}
-            className="text-xs font-sans text-muted-gray hover:text-off-white transition-colors cursor-pointer flex items-center gap-2"
+            className="text-sm font-sans text-muted-gray hover:text-off-white transition-colors cursor-pointer flex items-center gap-2"
           >
             ← Back to Home
           </button>
-          <span className="text-xs font-mono text-neon-green uppercase tracking-widest font-semibold">
+          <span className="text-sm font-mono text-neon-green uppercase tracking-widest font-semibold">
             {isCF ? 'Active Extension' : 'Coming Soon'}
           </span>
         </div>
@@ -76,7 +76,7 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
           <h1 className="text-3xl sm:text-5xl font-bold font-sans tracking-tight text-off-white">
             {title}
           </h1>
-          <p className="text-base text-muted-gray font-sans leading-relaxed">
+          <p className="text-lg text-muted-gray font-sans leading-relaxed">
             {tagline}
           </p>
         </div>
@@ -86,20 +86,20 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
           
           {/* Features Column */}
           <div className="flex flex-col gap-8">
-            <h3 className="text-xs font-sans text-muted-gray uppercase tracking-widest font-semibold">
+            <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest font-semibold">
               Core Capabilities
             </h3>
             <ul className="space-y-6">
               {features.map((feature, i) => (
                 <li key={i} className="flex gap-4">
-                  <span className="font-mono text-neon-green font-semibold text-xs pt-0.5">
+                  <span className="font-mono text-neon-green font-semibold text-sm pt-0.5">
                     0{i + 1}
                   </span>
                   <div>
-                    <h4 className="font-sans font-semibold text-sm text-off-white">
+                    <h4 className="font-sans font-semibold text-base text-off-white">
                       {feature.title}
                     </h4>
-                    <p className="text-xs text-muted-gray leading-relaxed mt-1 font-sans">
+                    <p className="text-sm text-muted-gray leading-relaxed mt-1 font-sans">
                       {feature.desc}
                     </p>
                   </div>
@@ -111,14 +111,14 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
               {isCF ? (
                 <button
                   onClick={() => onDownload(extensionId)}
-                  className="px-6 py-3 bg-off-white text-rich-black font-sans font-semibold text-xs rounded-md hover:bg-neon-green hover:text-black transition-all cursor-pointer"
+                  className="px-6 py-3 bg-off-white text-rich-black font-sans font-semibold text-sm rounded-md hover:bg-neon-green hover:text-black transition-all cursor-pointer"
                 >
                   Download Extension
                 </button>
               ) : (
                 <button
                   disabled
-                  className="px-6 py-3 bg-charcoal text-muted-gray font-sans font-semibold text-xs rounded-md cursor-not-allowed"
+                  className="px-6 py-3 bg-charcoal text-muted-gray font-sans font-semibold text-sm rounded-md cursor-not-allowed"
                 >
                   Coming Soon
                 </button>
@@ -129,7 +129,7 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
           {/* Right Column: Preview & Specs */}
           <div className="flex flex-col gap-8">
             <div>
-              <h3 className="text-xs font-sans text-muted-gray uppercase tracking-widest font-semibold mb-4">
+              <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest font-semibold mb-4">
                 Preview
               </h3>
               <div className="bg-card-bg border border-charcoal rounded-xl p-4">
@@ -138,10 +138,10 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
             </div>
 
             <div className="bg-card-bg border border-charcoal rounded-xl p-6 flex flex-col gap-4">
-              <h3 className="text-xs font-sans text-muted-gray uppercase tracking-widest font-semibold">
+              <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest font-semibold">
                 Extension Specifications
               </h3>
-              <div className="grid grid-cols-2 gap-4 text-xs font-sans">
+              <div className="grid grid-cols-2 gap-4 text-sm font-sans">
                 <div>
                   <span className="text-muted-gray block mb-1">Manifest Version</span>
                   <span className="text-off-white font-medium">Manifest V3</span>

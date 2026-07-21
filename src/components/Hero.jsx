@@ -5,7 +5,7 @@ const Hero = () => {
         
         {/* Main Headline */}
         <div className="max-w-5xl">
-          <p className="text-xs font-mono text-neon-green uppercase tracking-widest mb-6 font-semibold">
+          <p className="text-sm font-mono text-neon-green uppercase tracking-widest mb-6 font-semibold">
             Bespoke Engineering
           </p>
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tight leading-[0.95] text-off-white text-left">
@@ -19,7 +19,7 @@ const Hero = () => {
           {/* Purpose */}
           <div className="flex flex-col justify-between">
             <div>
-              <h3 className="text-xs font-sans text-muted-gray uppercase tracking-widest mb-4 font-semibold">
+              <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest mb-4 font-semibold">
                 Purpose
               </h3>
               <p className="text-base md:text-lg text-muted-gray font-sans leading-relaxed text-left max-w-md">
@@ -31,20 +31,20 @@ const Hero = () => {
           {/* Capabilities */}
           <div className="flex flex-col justify-between">
             <div>
-              <h3 className="text-xs font-sans text-muted-gray uppercase tracking-widest mb-4 font-semibold">
+              <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest mb-4 font-semibold">
                 Capabilities
               </h3>
-              <ul className="space-y-3 font-sans text-sm text-left">
+              <ul className="space-y-3 font-sans text-base text-left">
                 <li className="flex items-center gap-3 text-off-white font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-neon-green inline-block"></span>
+                  <span className="w-2 h-2 rounded-full bg-neon-green inline-block"></span>
                   <span>Chromium Core Extensions</span>
                 </li>
                 <li className="flex items-center gap-3 text-muted-gray">
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-gray/40 inline-block"></span>
+                  <span className="w-2 h-2 rounded-full bg-muted-gray/40 inline-block"></span>
                   <span>Enterprise SaaS Data Pipelines</span>
                 </li>
                 <li className="flex items-center gap-3 text-muted-gray">
-                  <span className="w-1.5 h-1.5 rounded-full bg-muted-gray/40 inline-block"></span>
+                  <span className="w-2 h-2 rounded-full bg-muted-gray/40 inline-block"></span>
                   <span>Automated Developer CLI Utilities</span>
                 </li>
               </ul>

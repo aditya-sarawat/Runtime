@@ -29,32 +29,32 @@ const InstallModal = ({ isOpen, onClose, extensionName }) => {
         
         {/* Header */}
         <div className="flex justify-between items-center border-b border-charcoal px-6 py-4">
-          <span className="text-sm font-bold text-off-white">
+          <span className="text-base font-bold text-off-white">
             Installation Guide — {displayName}
           </span>
           <button 
             onClick={onClose} 
-            className="text-muted-gray hover:text-off-white font-medium text-xs cursor-pointer p-1 rounded-md"
+            className="text-muted-gray hover:text-off-white font-medium text-sm cursor-pointer p-1 rounded-md"
           >
             ✕
           </button>
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 space-y-6 text-xs text-muted-gray leading-relaxed overflow-y-auto max-h-[75vh]">
+        <div className="p-6 space-y-6 text-sm text-muted-gray leading-relaxed overflow-y-auto max-h-[75vh]">
           
           {/* Step 1 */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-off-white font-semibold text-sm">Step 1: Download Extension</span>
+              <span className="text-off-white font-semibold text-base">Step 1: Download Extension</span>
             </div>
-            <p className="text-xs text-muted-gray">
+            <p className="text-sm text-muted-gray">
               Download the extension source archive. Unzipping this file will produce the folder to load into Chrome.
             </p>
 
             <button
               onClick={triggerDownload}
-              className="mt-2 px-4 py-2.5 bg-off-white text-rich-black font-semibold text-xs rounded-lg hover:bg-neon-green hover:text-black transition-all cursor-pointer"
+              className="mt-2 px-4 py-2.5 bg-off-white text-rich-black font-semibold text-sm rounded-lg hover:bg-neon-green hover:text-black transition-all cursor-pointer"
             >
               Download {zipName}
             </button>
@@ -64,8 +64,8 @@ const InstallModal = ({ isOpen, onClose, extensionName }) => {
 
           {/* Step 2 */}
           <div className="space-y-3">
-            <span className="text-off-white font-semibold text-sm">Step 2: Extract Files</span>
-            <p className="text-xs text-muted-gray">
+            <span className="text-off-white font-semibold text-base">Step 2: Extract Files</span>
+            <p className="text-sm text-muted-gray">
               Extract the downloaded zip file to a directory of your choice. Keep this directory saved on your system.
             </p>
           </div>
@@ -74,8 +74,8 @@ const InstallModal = ({ isOpen, onClose, extensionName }) => {
 
           {/* Step 3 */}
           <div className="space-y-3">
-            <span className="text-off-white font-semibold text-sm">Step 3: Load into Chrome</span>
-            <ol className="list-decimal list-inside space-y-2 text-xs text-muted-gray">
+            <span className="text-off-white font-semibold text-base">Step 3: Load into Chrome</span>
+            <ol className="list-decimal list-inside space-y-2 text-sm text-muted-gray">
               <li>Open Chrome and navigate to <code className="bg-card-bg px-1.5 py-0.5 rounded border border-charcoal text-neon-green font-mono">chrome://extensions</code></li>
               <li>Toggle <strong className="text-off-white">Developer mode</strong> in the top-right corner.</li>
               <li>Click <strong className="text-off-white">Load unpacked</strong> in the top-left menu.</li>
@@ -89,7 +89,7 @@ const InstallModal = ({ isOpen, onClose, extensionName }) => {
         <div className="p-4 border-t border-charcoal bg-panel-header/50 flex justify-end">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-card-bg border border-charcoal text-off-white hover:border-muted-gray rounded-lg text-xs font-semibold cursor-pointer"
+            className="px-4 py-2 bg-card-bg border border-charcoal text-off-white hover:border-muted-gray rounded-lg text-sm font-semibold cursor-pointer"
           >
             Done
           </button>
