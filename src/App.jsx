@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 import Hero from './components/Hero';
 import SolutionsGrid from './components/SolutionsGrid';
 import ExtensionDetails from './components/ExtensionDetails';
-import InstallModal from './components/InstallModal';
 import LoadingScreen from './components/LoadingScreen';
 import FeedbackForm from './components/FeedbackForm';
 import About from './components/About';
@@ -72,19 +71,12 @@ function App() {
 function AppContent({ theme, toggleTheme }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalExtension, setModalExtension] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Automatically scroll to the top of the page on route/path changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
-  const handleDownload = (extId) => {
-    setModalExtension(extId);
-    setModalOpen(true);
-  };
 
   const handleNavigate = (sectionId) => {
     if (sectionId === 'feedback') {
@@ -132,7 +124,6 @@ function AppContent({ theme, toggleTheme }) {
 
               {/* 3. SOLUTIONS & TOOLS GRID */}
               <SolutionsGrid 
-                onDownload={handleDownload} 
                 onMoreInfo={(extId) => navigate(`/${extId}`)} 
               />
             </>
@@ -148,7 +139,6 @@ function AppContent({ theme, toggleTheme }) {
               <ExtensionDetails 
                 extensionId="cf-power-tools" 
                 onBack={() => navigate('/')} 
-                onDownload={handleDownload} 
               />
             </>
           } />
@@ -163,7 +153,6 @@ function AppContent({ theme, toggleTheme }) {
               <ExtensionDetails 
                 extensionId="cp-contest-tracker" 
                 onBack={() => navigate('/')} 
-                onDownload={handleDownload} 
               />
             </>
           } />
@@ -205,13 +194,6 @@ function AppContent({ theme, toggleTheme }) {
 
       {/* 4. FOOTER */}
       <Footer />
-
-      {/* 5. INSTALLATION GUIDE MODAL */}
-      <InstallModal 
-        isOpen={modalOpen} 
-        onClose={() => setModalOpen(false)} 
-        extensionName={modalExtension} 
-      />
 
     </div>
     </>

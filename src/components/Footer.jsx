@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import NewsletterForm from './NewsletterForm';
-import DelhiClock from './DelhiClock';
+import UserLocationClock from './UserLocationClock';
 
 const Footer = () => {
   return (
@@ -47,11 +47,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-5 border-t border-charcoal flex flex-col sm:flex-row justify-between items-center gap-3 text-sm font-sans text-muted-gray select-none">
           <p>© 2026 RUNTIME. All rights reserved.</p>
-          <div className="flex items-center gap-2 font-mono text-sm">
-            <span>Delhi, IN</span>
-            <span>•</span>
-            <DelhiClock minimal={true} />
-          </div>
+          <UserLocationClock minimal={true} />
         </div>
 
       </div>
@@ -60,4 +56,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

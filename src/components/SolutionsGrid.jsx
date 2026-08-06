@@ -1,8 +1,9 @@
 import BrowserMockup from './BrowserMockup';
 import NodePipeline from './NodePipeline';
 import PipelineVisualizer from './PipelineVisualizer';
+import { EXTENSION_LINKS } from '../constants/extensions';
 
-const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
+const SolutionsGrid = ({ onMoreInfo }) => {
   return (
     <section id="solutions" className="w-full border-b border-charcoal py-10 sm:py-14 md:py-16 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 flex flex-col gap-6 sm:gap-8">
@@ -18,7 +19,7 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
             </h2>
           </div>
           <p className="text-base text-muted-gray max-w-md text-left">
-            We are currently testing our core extensions. Chrome Web Store listings and expanded browser engine support are rolling out soon.
+            Our core browser extensions are live on the Chrome Web Store. Install directly to boost your competitive programming workflow.
           </p>
         </div>
 
@@ -31,7 +32,7 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
               <div className="flex justify-between items-center mb-4">
                 <span className="text-sm font-mono text-muted-gray">01</span>
                 <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-neon-green/10 text-neon-green border border-neon-green/20">
-                  Active
+                  Active • Web Store
                 </span>
               </div>
               
@@ -49,12 +50,17 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
             </div>
 
             <div className="mt-5 flex gap-3 pt-3.5 border-t border-charcoal select-none">
-              <button
-                onClick={(e) => { e.stopPropagation(); onDownload('cf-power-tools'); }}
-                className="flex-1 py-2 bg-off-white text-rich-black font-sans font-semibold text-sm rounded-md hover:bg-neon-green hover:text-black transition-all duration-200 cursor-pointer"
+              <a
+                href={EXTENSION_LINKS['cf-power-tools']}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-2 text-center bg-off-white text-rich-black font-sans font-semibold text-sm rounded-md hover:bg-neon-green hover:text-black transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5"
               >
-                Download
-              </button>
+                Add to Chrome
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
               <button
                 onClick={(e) => { e.stopPropagation(); onMoreInfo('cf-power-tools'); }}
                 className="flex-1 py-2 border border-charcoal text-off-white font-sans font-semibold text-sm rounded-md hover:border-muted-gray hover:text-neon-green transition-all duration-200 cursor-pointer"
@@ -64,13 +70,13 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
             </div>
           </div>
 
-          {/* Card 2: CP Contest Tracker - Coming soon */}
-          <div className="bg-card-bg border border-charcoal rounded-xl p-6 flex flex-col justify-between opacity-85 transition-all duration-300">
+          {/* Card 2: CP Contest Tracker - Active Core */}
+          <div className="bg-card-bg border border-charcoal rounded-xl p-6 flex flex-col justify-between hover:border-muted-gray/40 transition-all duration-300 shadow-sm">
             <div>
               <div className="flex justify-between items-center mb-4">
                 <span className="text-sm font-mono text-muted-gray">02</span>
-                <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-muted-gray/10 text-muted-gray border border-muted-gray/20">
-                  Coming Soon
+                <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-neon-green/10 text-neon-green border border-neon-green/20">
+                  Active • Web Store
                 </span>
               </div>
               
@@ -81,19 +87,30 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
                 Track upcoming competitive programming contests across 8+ platforms with automatic calendar synchronization.
               </p>
 
-              {/* Visualizer (Faded) */}
-              <div className="my-3 opacity-50">
+              {/* Node Pipeline Visualizer */}
+              <div className="my-3">
                 <NodePipeline />
               </div>
             </div>
 
-            <div className="mt-5 flex items-center justify-between pt-3.5 border-t border-charcoal select-none">
-              <span className="text-sm font-sans text-muted-gray">
-                Rollout Pending
-              </span>
-              <span className="text-sm font-mono text-muted-gray" title="Coming soon">
-                In Development
-              </span>
+            <div className="mt-5 flex gap-3 pt-3.5 border-t border-charcoal select-none">
+              <a
+                href={EXTENSION_LINKS['cp-contest-tracker']}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-2 text-center bg-off-white text-rich-black font-sans font-semibold text-sm rounded-md hover:bg-neon-green hover:text-black transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5"
+              >
+                Add to Chrome
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+              <button
+                onClick={(e) => { e.stopPropagation(); onMoreInfo('cp-contest-tracker'); }}
+                className="flex-1 py-2 border border-charcoal text-off-white font-sans font-semibold text-sm rounded-md hover:border-muted-gray hover:text-neon-green transition-all duration-200 cursor-pointer"
+              >
+                More Info
+              </button>
             </div>
           </div>
 
@@ -138,4 +155,3 @@ const SolutionsGrid = ({ onDownload, onMoreInfo }) => {
 };
 
 export default SolutionsGrid;
-

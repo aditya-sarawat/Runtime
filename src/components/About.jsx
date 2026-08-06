@@ -67,7 +67,7 @@ const About = ({ onBack }) => {
               </div>
               <div className="py-3.5 flex justify-between items-center">
                 <span className="text-off-white font-medium">CP Contest Tracker</span>
-                <span className="text-neon-green font-mono">v1.0.0 • Testing</span>
+                <span className="text-neon-green font-mono">v1.0.0 • Active</span>
               </div>
               <div className="py-3.5 flex justify-between items-center text-muted-gray">
                 <span>SaaS Data Pipelines</span>
@@ -84,4 +84,3 @@ const About = ({ onBack }) => {
 };
 
 export default About;
-

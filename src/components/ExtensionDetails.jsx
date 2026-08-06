@@ -1,12 +1,15 @@
 import BrowserMockup from './BrowserMockup';
 import NodePipeline from './NodePipeline';
+import { EXTENSION_LINKS } from '../constants/extensions';
 
-const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
+const ExtensionDetails = ({ extensionId, onBack }) => {
   const isCF = extensionId === 'cf-power-tools';
   const title = isCF ? 'CF Power Tools' : 'CP Contest Tracker';
   const tagline = isCF 
     ? 'Injects a powerful analytics dashboard into any Codeforces profile page with efficiency meters, tag power radars, heatmaps, and personalized recommendations.'
     : 'Track upcoming competitive programming contests from Codeforces, CodeChef, LeetCode, AtCoder, HackerRank, HackerEarth, Toph, and GeeksforGeeks. Sync to Google Calendar.';
+
+  const storeUrl = EXTENSION_LINKS[extensionId] || '#';
 
   const features = isCF ? [
     {
@@ -67,22 +70,37 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
             ← Back to Home
           </button>
           <span className="text-sm font-mono text-neon-green uppercase tracking-widest font-semibold">
-            {isCF ? 'Active Extension' : 'Coming Soon'}
+            Active Extension
           </span>
         </div>
 
-        {/* Product Details Header */}
-        <div className="flex flex-col gap-3 max-w-3xl text-left">
-          <h1 className="text-3xl sm:text-5xl font-bold font-sans tracking-tight text-off-white">
-            {title}
-          </h1>
-          <p className="text-lg text-muted-gray font-sans leading-relaxed">
-            {tagline}
-          </p>
+        {/* Product Details Header with Right-Aligned CTA */}
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6 text-left pb-4 border-b border-charcoal">
+          <div className="flex flex-col gap-3 max-w-3xl">
+            <h1 className="text-3xl sm:text-5xl font-bold font-sans tracking-tight text-off-white">
+              {title}
+            </h1>
+            <p className="text-lg text-muted-gray font-sans leading-relaxed">
+              {tagline}
+            </p>
+          </div>
+          <div className="shrink-0 sm:pt-1">
+            <a
+              href={storeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-off-white text-rich-black font-sans font-semibold text-sm rounded-lg hover:bg-neon-green hover:text-black transition-all cursor-pointer shadow-md whitespace-nowrap"
+            >
+              Add to Chrome
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
         </div>
 
         {/* Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start text-left pt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start text-left pt-2">
           
           {/* Features Column */}
           <div className="flex flex-col gap-8">
@@ -106,24 +124,6 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
                 </li>
               ))}
             </ul>
-
-            <div className="pt-6 border-t border-charcoal">
-              {isCF ? (
-                <button
-                  onClick={() => onDownload(extensionId)}
-                  className="px-6 py-3 bg-off-white text-rich-black font-sans font-semibold text-sm rounded-md hover:bg-neon-green hover:text-black transition-all cursor-pointer"
-                >
-                  Download Extension
-                </button>
-              ) : (
-                <button
-                  disabled
-                  className="px-6 py-3 bg-charcoal text-muted-gray font-sans font-semibold text-sm rounded-md cursor-not-allowed"
-                >
-                  Coming Soon
-                </button>
-              )}
-            </div>
           </div>
 
           {/* Right Column: Preview & Specs */}
@@ -173,4 +173,3 @@ const ExtensionDetails = ({ extensionId, onBack, onDownload }) => {
 };
 
 export default ExtensionDetails;
-
