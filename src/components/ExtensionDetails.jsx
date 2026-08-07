@@ -5,54 +5,79 @@ import { EXTENSION_LINKS } from '../constants/extensions';
 const ExtensionDetails = ({ extensionId, onBack }) => {
   const isCF = extensionId === 'cf-power-tools';
   const title = isCF ? 'CF Power Tools' : 'CP Contest Tracker';
+  const version = 'v1.0.1';
   const tagline = isCF 
-    ? 'Injects a powerful analytics dashboard into any Codeforces profile page with efficiency meters, tag power radars, heatmaps, and personalized recommendations.'
-    : 'Track upcoming competitive programming contests from Codeforces, CodeChef, LeetCode, AtCoder, HackerRank, HackerEarth, Toph, and GeeksforGeeks. Sync to Google Calendar.';
+    ? 'Injects an analytics dashboard into Codeforces profiles with efficiency meters, tag power radars, heatmaps, and recommendations.'
+    : 'Track upcoming competitive programming contests from Codeforces, CodeChef, LeetCode, AtCoder & more. Sync with Google Calendar.';
 
   const storeUrl = EXTENSION_LINKS[extensionId] || '#';
 
   const features = isCF ? [
     {
       title: 'Profile Dashboard Overlay',
-      desc: 'Injects analytics directly into Codeforces profiles with real-time feedback meters.'
+      desc: 'Injects real-time analytics widgets, problem distribution heatmaps, and rating progress metrics directly into Codeforces profile pages.'
     },
     {
-      title: 'Tag Power Radar',
-      desc: 'Visualizes your strength profile across key programming topics (DP, Math, Graphs, etc.) using interactive radar charts.'
+      title: 'Tag Power Radar & Topic Breakdown',
+      desc: 'Visualizes your strength profile across key programming topics (DP, Math, Graphs, Data Structures, Greedy, Strings) using interactive radar charts.'
     },
     {
       title: 'Shadow Mode Rival Tracking',
-      desc: 'Enables head-to-head tracking against any rival user with performance offset bars.'
+      desc: 'Enables head-to-head tracking against any rival handle with rating differential bars, win/loss stats, and gap analysis.'
     },
     {
-      title: 'AI Recommendations',
-      desc: 'Recommends target problems using localized algorithms based on active tag performance gaps.'
+      title: 'AI Problem Recommendations',
+      desc: 'Recommends targeted practice problems using OpenAI & Google Gemini API integrations based on active tag performance gaps.'
     },
     {
       title: 'AC Stopwatch & Zen Mode',
-      desc: 'Provides spoiler blockers and timers to facilitate focused problem solving.'
+      desc: 'Inbuilt timer that tracks solve duration per problem with auto-stop on AC, plus Zen Mode spoiler blockers for tags and ratings during practice.'
+    },
+    {
+      title: 'MathJax & LaTeX Rendering',
+      desc: 'Integrated MathJax helper scripts for rendering math formulas and LaTeX equations seamlessly across Codeforces problem statements.'
     }
   ] : [
     {
-      title: 'Google Calendar Sync',
-      desc: 'Silently synchronizes upcoming competitive events directly into your calendar. Restores deleted entries.'
+      title: 'Google Calendar Auto-Sync',
+      desc: 'Seamless OAuth 2.0 Google Calendar integration that automatically syncs upcoming contest schedules with customizable event reminders.'
     },
     {
-      title: '8 Supported Platforms',
-      desc: 'Supports Codeforces, CodeChef, LeetCode, AtCoder, HackerRank, HackerEarth, Toph, and GeeksforGeeks.'
+      title: '8 Multi-Platform Aggregation',
+      desc: 'Consolidated contest feeds across 8 platforms: Codeforces, CodeChef, LeetCode, AtCoder, HackerRank, HackerEarth, Toph, and GeeksforGeeks.'
     },
     {
       title: 'Desktop Notification Alerts',
-      desc: 'Sets up custom timers and shows browser alerts before contest gates open.'
+      desc: 'Native Chrome browser desktop notifications powered by background timers with customizable alert offsets before contests start.'
     },
     {
-      title: 'Background Refresh Service',
-      desc: 'Uses background chrome alarms to update schedules and cache new events silently.'
+      title: 'Background Alarm Refresh Engine',
+      desc: 'Chrome Alarm service worker that periodically polls Contest Hive and CLIST APIs to refresh and cache upcoming events silently.'
     },
     {
-      title: 'Customizable Intervals',
-      desc: 'Fine-tune sync intervals and filter platforms to build your customized dashboard cockpit.'
+      title: 'Customizable Cockpit & Filters',
+      desc: 'Multi-slide setup panel allowing users to toggle specific platforms, adjust refresh intervals (15m to 6h), and tune reminder timing.'
+    },
+    {
+      title: 'Offline Event Caching',
+      desc: 'Caches fetched contest schedules in Chrome local storage for instant loading and uninterrupted offline access.'
     }
+  ];
+
+  const specifications = isCF ? [
+    { label: 'Version', value: version },
+    { label: 'Manifest Version', value: 'Manifest V3' },
+    { label: 'Core Permissions', value: 'storage' },
+    { label: 'Host Permissions', value: 'codeforces.com, api.openai.com, generativelanguage.googleapis.com' },
+    { label: 'Core Architecture', value: 'Content Script Injector & Service Worker' },
+    { label: 'Target Platform', value: 'Chromium Browsers (Chrome, Edge, Brave)' }
+  ] : [
+    { label: 'Version', value: version },
+    { label: 'Manifest Version', value: 'Manifest V3' },
+    { label: 'Core Permissions', value: 'storage, identity, alarms, notifications' },
+    { label: 'Host Permissions', value: 'contest-hive.vercel.app, clist.by, googleapis.com' },
+    { label: 'OAuth 2.0 Scopes', value: 'calendar.events, userinfo.email' },
+    { label: 'Target Platform', value: 'Chromium Browsers (Chrome, Edge, Brave)' }
   ];
 
   return (
@@ -69,9 +94,14 @@ const ExtensionDetails = ({ extensionId, onBack }) => {
           >
             ← Back to Home
           </button>
-          <span className="text-sm font-mono text-neon-green uppercase tracking-widest font-semibold">
-            Active Extension
-          </span>
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-mono text-muted-gray px-2 py-0.5 rounded border border-charcoal bg-card-bg">
+              {version}
+            </span>
+            <span className="text-sm font-mono text-neon-green uppercase tracking-widest font-semibold">
+              Active Extension
+            </span>
+          </div>
         </div>
 
         {/* Product Details Header with Right-Aligned CTA */}
@@ -105,7 +135,7 @@ const ExtensionDetails = ({ extensionId, onBack }) => {
           {/* Features Column */}
           <div className="flex flex-col gap-8">
             <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest font-semibold">
-              Core Capabilities
+              Core Capabilities & Features
             </h3>
             <ul className="space-y-6">
               {features.map((feature, i) => (
@@ -130,7 +160,7 @@ const ExtensionDetails = ({ extensionId, onBack }) => {
           <div className="flex flex-col gap-8">
             <div>
               <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest font-semibold mb-4">
-                Preview
+                Interactive Preview
               </h3>
               <div className="bg-card-bg border border-charcoal rounded-xl p-4">
                 {isCF ? <BrowserMockup /> : <NodePipeline />}
@@ -139,27 +169,17 @@ const ExtensionDetails = ({ extensionId, onBack }) => {
 
             <div className="bg-card-bg border border-charcoal rounded-xl p-6 flex flex-col gap-4">
               <h3 className="text-sm font-sans text-muted-gray uppercase tracking-widest font-semibold">
-                Extension Specifications
+                Extension Specifications (Manifest V3)
               </h3>
-              <div className="grid grid-cols-2 gap-4 text-sm font-sans">
-                <div>
-                  <span className="text-muted-gray block mb-1">Manifest Version</span>
-                  <span className="text-off-white font-medium">Manifest V3</span>
-                </div>
-                <div>
-                  <span className="text-muted-gray block mb-1">Permissions</span>
-                  <span className="text-off-white font-medium">
-                    {isCF ? 'Storage, Host URLs' : 'Storage, Identity'}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-muted-gray block mb-1">Core Architecture</span>
-                  <span className="text-off-white font-medium">Event Background Service</span>
-                </div>
-                <div>
-                  <span className="text-muted-gray block mb-1">Target Platform</span>
-                  <span className="text-off-white font-medium">Chromium Browsers</span>
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-sans">
+                {specifications.map((spec, idx) => (
+                  <div key={idx} className={spec.value.length > 30 ? 'sm:col-span-2' : ''}>
+                    <span className="text-muted-gray block mb-1">{spec.label}</span>
+                    <span className="text-off-white font-medium font-mono text-xs break-all sm:break-normal">
+                      {spec.value}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -173,3 +193,4 @@ const ExtensionDetails = ({ extensionId, onBack }) => {
 };
 
 export default ExtensionDetails;
+

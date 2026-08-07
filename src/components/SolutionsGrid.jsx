@@ -40,7 +40,7 @@ const SolutionsGrid = ({ onMoreInfo }) => {
                 CF Power Tools
               </h3>
               <p className="text-sm text-muted-gray font-sans leading-relaxed mb-4">
-                Analytics dashboard for Codeforces profile pages with efficiency meters, tag power radars, and recommendations.
+                Injects an analytics dashboard into Codeforces profiles with efficiency meters, tag power radars, heatmaps, and recommendations.
               </p>
 
               {/* Analytics dashboard mockup */}
@@ -84,7 +84,7 @@ const SolutionsGrid = ({ onMoreInfo }) => {
                 CP Contest Tracker
               </h3>
               <p className="text-sm text-muted-gray font-sans leading-relaxed mb-4">
-                Track upcoming competitive programming contests across 8+ platforms with automatic calendar synchronization.
+                Track upcoming competitive programming contests from Codeforces, CodeChef, LeetCode, AtCoder & more. Sync with Google Calendar.
               </p>
 
               {/* Node Pipeline Visualizer */}
